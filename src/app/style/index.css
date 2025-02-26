@@ -1,0 +1,81 @@
+@import "./base-icon.css";
+@import "overwrite.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-black;
+    font-family: Inter, sans-serif;
+  }
+}
+
+@layer utilities {
+  .transition-300 {
+    @apply transition-all duration-300;
+  }
+
+  .transition-200 {
+    @apply transition-all duration-200;
+  }
+
+  .absolute-x {
+    @apply absolute !left-1/2 !-translate-x-1/2;
+  }
+
+  .absolute-y {
+    @apply absolute !top-1/2 !-translate-y-1/2;
+  }
+
+  .absolute-center {
+    @apply absolute-x absolute-y;
+  }
+
+  .flex-y-center {
+    @apply flex items-center;
+  }
+
+  .flex-x-center {
+    @apply flex justify-center;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-center-between {
+    @apply flex items-center justify-between;
+  }
+
+  .flex-between {
+    @apply flex justify-between;
+  }
+}
+
+@layer components {
+  .status {
+    @apply rounded-md !px-2 !py-1 !text-sm font-medium;
+  }
+
+  .status-failed {
+    @apply bg-red/10 !text-red;
+  }
+
+  .status-success {
+    @apply bg-green/10 !text-green;
+  }
+
+  .status-pending {
+    /*@apply !text- bg-yellow/10;*/
+  }
+
+  .status-canceled {
+    @apply bg-gray-600 !text-black;
+  }
+
+  .status-info {
+    @apply bg-blue/10 !text-blue;
+  }
+}

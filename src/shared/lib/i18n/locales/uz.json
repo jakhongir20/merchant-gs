@@ -1,0 +1,12 @@
+{
+  "common": {
+    "locale": {
+      "ru": "Русский",
+      "uz": "O'zbekcha"
+    }
+  },
+  "sidebarMenu": {
+    "requests": "UZ requests",
+    "orders": "UZ order"
+  }
+}
