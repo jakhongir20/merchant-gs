@@ -1,4 +1,4 @@
-import { IconProps } from "@/shared/ui/icon/Icon";
+import { IconProps } from "@/shared/ui/Icon/index";
 import Home from "@/shared/assets/icons/home.svg?react";
 import Finance from "@/shared/assets/icons/finance.svg?react";
 import Arrows from "@/shared/assets/icons/arrows.svg?react";
@@ -9,8 +9,9 @@ import Info from "@/shared/assets/icons/info.svg?react";
 import Notification from "@/shared/assets/icons/notification.svg?react";
 import DownloadFile from "@/shared/assets/icons/download-file.svg?react";
 import ArrowUpSquare from "@/shared/assets/icons/arrow-up-s.svg?react";
+import Search from "@/shared/assets/icons/search.svg?react";
 
-export const LAZY_ICONS = (
+export const ICON_ELEMENTS = (
   height: IconProps["height"],
   width: IconProps["width"],
 ) => ({
@@ -24,4 +25,5 @@ export const LAZY_ICONS = (
   notification: <Notification style={{ height, width }} />,
   "download-file": <DownloadFile style={{ height, width }} />,
   "arrow-up-s": <ArrowUpSquare style={{ height, width }} />,
+  search: <Search style={{ height, width }} />,
 });

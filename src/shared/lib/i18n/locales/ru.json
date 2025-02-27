@@ -3,6 +3,12 @@
     "Dashboard": "Дашборд",
     "Transaction": "Транзакция"
   },
+  "Common": {
+    "Input": {
+      "Enter": "Введите ...",
+      "Search": "Поиск"
+    }
+  },
   "common": {
     "create": {
       "toast": "Успешно создано"

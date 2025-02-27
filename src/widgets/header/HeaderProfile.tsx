@@ -1,10 +1,10 @@
 import React, { FC, useState } from "react";
 import { cn, rotateIcon } from "@/shared/helpers";
-// import { Dropdown, Icon } from "@/shared/ui";
+// import { Dropdown, Index } from "@/shared/ui";
 import { useNavigate } from "react-router-dom";
 import { ApiService } from "@/shared/lib/services";
 import { Dropdown, MenuProps } from "antd";
-import { Icon } from "@/shared/ui";
+import { Index } from "@/shared/ui";
 
 interface Props {
   className?: string;
@@ -28,7 +28,7 @@ export const HeaderProfile: FC<Props> = ({}) => {
       key: "1",
       label: (
         <div className="flex h-26px items-center gap-1.5">
-          <Icon icon="home" />
+          <Index icon="home" />
           <span className="text-black-100">Profile</span>
         </div>
       ),
@@ -37,7 +37,7 @@ export const HeaderProfile: FC<Props> = ({}) => {
       key: "2",
       label: (
         <div className="flex h-26px items-center gap-1.5">
-          <Icon icon="setting" />
+          <Index icon="setting" />
           <span className="text-black-100">Test</span>
         </div>
       ),
@@ -49,7 +49,7 @@ export const HeaderProfile: FC<Props> = ({}) => {
           className="flex h-26px items-center gap-1.5"
           onClick={handleLogout}
         >
-          <Icon icon="setting" />
+          <Index icon="setting" />
           <span className="text-black-100">Logout</span>
         </div>
       ),
@@ -58,12 +58,12 @@ export const HeaderProfile: FC<Props> = ({}) => {
 
   return (
     <Dropdown menu={{ items }} open={openUser} onOpenChange={handleOpenUser}>
-      <div className="flex h-6 w-11 cursor-pointer items-center rounded-md bg-violet">
+      <div className="bg-violet flex h-6 w-11 cursor-pointer items-center rounded-md">
         <div className="flex h-full w-6 items-center justify-center rounded-md bg-white text-xs font-semibold text-black">
           SB
         </div>
         <div className="mx-auto flex justify-center">
-          <Icon
+          <Index
             icon="chevron-down"
             color="text-white"
             className={cn(rotateIcon(openUser))}

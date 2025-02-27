@@ -25,12 +25,12 @@ export const useToast = () => {
       content: (
         <div className="flex h-full w-[360px] items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <Icon icon={`toast-${type}`} />
+            <Icon name={`toast-${type}`} />
             <p className="max-w-[280px] text-sm font-medium">{title}</p>
           </div>
           <div onClick={() => messageApi.destroy(key)}>
             <Icon
-              icon="close"
+              name="close"
               color={type === "warning" ? "!text-black" : "!text-white"}
               className="cursor-pointer text-lg transition-opacity hover:opacity-70"
             />

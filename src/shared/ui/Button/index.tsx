@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from "react";
-import { Button as ButtonUI, ButtonProps as AntButtonProps } from "antd";
+import { Button as AntButton, ButtonProps as AntButtonProps } from "antd";
 
 interface Props extends AntButtonProps {
   className?: string;
@@ -17,7 +17,7 @@ export const Button: FC<Props> = ({
   ...rest
 }) => {
   return (
-    <ButtonUI
+    <AntButton
       loading={loading}
       variant={"solid"}
       className={`flex items-center !gap-1 px-6 py-2.5 leading-[18.2px] shadow-none ${className}`}
@@ -30,6 +30,6 @@ export const Button: FC<Props> = ({
       }
     >
       {children}
-    </ButtonUI>
+    </AntButton>
   );
 };

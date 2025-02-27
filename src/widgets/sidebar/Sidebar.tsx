@@ -56,7 +56,7 @@ export const Sidebar: FC<Props> = ({ collapsed }) => {
                 ),
                 icon: (
                   <Icon
-                    icon={item.meta.icon}
+                    name={item.meta.icon}
                     color={isActive ? "!text-red" : "!text-gray"}
                     width={collapsed ? "100%" : ""}
                     className={cn(collapsed ? "!align-middle" : "")}

@@ -8,7 +8,7 @@ const routes: AppRouteObject[] = [
       title: "Sidebar.Transaction",
       icon: "finance",
     },
-    element: withLazyLoad(() => import("@/modules/Transaction/pages/Page")),
+    element: withLazyLoad(() => import("@/modules/Transaction/page")),
   },
 ];
 

@@ -13,4 +13,4 @@ const iconTypeContent = `export type IconType = ${iconNames
 const outputPath = path.join("./src/shared/types", "icons.ts");
 fs.writeFileSync(outputPath, iconTypeContent);
 
-console.log("Icon type definitions generated at:", outputPath);
+console.log("Index type definitions generated at:", outputPath);

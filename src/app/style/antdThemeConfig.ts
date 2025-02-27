@@ -9,6 +9,12 @@ export const antdThemeConfig: ThemeConfig = {
   components: {
     Input: {
       colorText: "#111214",
+      borderRadius: 8,
+      fontSize: 14,
+      controlHeight: 40,
+      boxShadow: "none",
+      colorPrimary: "#F1F1F2",
+      colorPrimaryHover: "rgba(233, 83, 47, 0.08)",
     },
     DatePicker: {
       fontSize: 14,

@@ -26,7 +26,7 @@ export const Header: React.FC<Props> = ({ collapsed, setCollapsed }) => {
         className="top-[calc(50% - 17px)] absolute left-[-17px] z-20 flex h-8 !w-8 items-center justify-center gap-4 rounded-md border border-gray-300 bg-white hover:!bg-gray-300"
         icon={
           <Icon
-            icon="arrows"
+            name="arrows"
             width={13}
             className={cn(collapsed ? "rotate-180" : "")}
           />
@@ -47,7 +47,7 @@ export const Header: React.FC<Props> = ({ collapsed, setCollapsed }) => {
           <div className="ml-5 text-lg">
             <div className="mb-1 flex items-center gap-2 text-xl font-bold text-gray-500">
               <span>OOO “Anglesey food”</span>
-              <Icon icon="arrow-up-s" width={18} />
+              <Icon name="arrow-up-s" width={18} />
             </div>
             <p className="text-xs font-semibold text-gray">Кассы</p>
           </div>
@@ -59,14 +59,14 @@ export const Header: React.FC<Props> = ({ collapsed, setCollapsed }) => {
           >
             <Switch size="small" />
             <span className="">Без % Global Pay</span>
-            <Icon icon="info" color="text-gray" className="" />
+            <Icon name="info" color="text-gray" className="" />
           </Flex>
           <div className="h-26px w-[1px] bg-gray-400"></div>
           <Flex align="center" className="ml-5">
-            <Icon icon="sun" />
+            <Icon name="sun" />
           </Flex>
           <Flex align="center" className="ml-8 mr-5">
-            <Icon icon="notification" />
+            <Icon name="notification" />
           </Flex>
           <Avatar
             alt="avatar"

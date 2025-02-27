@@ -1,10 +1,10 @@
 import { FC, ReactNode, Suspense } from "react";
 import { cn } from "@/shared/helpers";
-import { LAZY_ICONS } from "@/shared/ui/icon/iconElements";
+import { ICON_ELEMENTS } from "@/shared/ui/Icon/iconElements";
 import { IconType } from "@/shared/types";
 
 export interface IconProps {
-  icon?: IconType;
+  name?: IconType;
   size?: string | number;
   height?: string | number;
   width?: string | number;
@@ -14,7 +14,7 @@ export interface IconProps {
 }
 
 export const Icon: FC<IconProps> = ({
-  icon,
+  name,
   size = 16,
   height = "100%",
   width = "100%",
@@ -26,7 +26,7 @@ export const Icon: FC<IconProps> = ({
   if (children) {
     return (
       <i
-        className={cn("base-icon", color, "block")}
+        className={cn("base-Index", color, "block")}
         style={{ fontSize: size }}
         {...rest}
       >
@@ -35,15 +35,15 @@ export const Icon: FC<IconProps> = ({
     );
   }
 
-  if (!icon) return null;
+  if (!name) return null;
 
-  const IconComponent = LAZY_ICONS(height, width)[
-    icon as keyof typeof LAZY_ICONS
+  const IconComponent = ICON_ELEMENTS(height, width)[
+    name as keyof typeof ICON_ELEMENTS
   ];
 
   return (
     <i
-      className={cn("base-icon", color, className)}
+      className={cn("base-index", color, className)}
       style={{ fontSize: size }}
       {...rest}
     >
