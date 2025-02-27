@@ -10,6 +10,12 @@ import Notification from "@/shared/assets/icons/notification.svg?react";
 import DownloadFile from "@/shared/assets/icons/download-file.svg?react";
 import ArrowUpSquare from "@/shared/assets/icons/arrow-up-s.svg?react";
 import Search from "@/shared/assets/icons/search.svg?react";
+import ArrowIndicator from "@/shared/assets/icons/arrow-indicator.svg?react";
+import ArrowLine from "@/shared/assets/icons/arrow-line.svg?react";
+import Cross from "@/shared/assets/icons/cross.svg?react";
+import Reverse from "@/shared/assets/icons/reverse.svg?react";
+import Check from "@/shared/assets/icons/check.svg?react";
+import Refresh from "@/shared/assets/icons/refresh.svg?react";
 
 export const ICON_ELEMENTS = (
   height: IconProps["height"],
@@ -25,5 +31,11 @@ export const ICON_ELEMENTS = (
   notification: <Notification style={{ height, width }} />,
   "download-file": <DownloadFile style={{ height, width }} />,
   "arrow-up-s": <ArrowUpSquare style={{ height, width }} />,
+  "arrow-indicator": <ArrowIndicator style={{ height, width }} />,
+  "arrow-line": <ArrowLine style={{ height, width }} />,
   search: <Search style={{ height, width }} />,
+  cross: <Cross style={{ height, width }} />,
+  reverse: <Reverse style={{ height, width }} />,
+  check: <Check style={{ height, width }} />,
+  refresh: <Refresh style={{ height, width }} />,
 });

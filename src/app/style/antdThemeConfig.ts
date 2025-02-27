@@ -2,9 +2,12 @@ import { ThemeConfig } from "antd";
 
 export const antdThemeConfig: ThemeConfig = {
   token: {
-    colorPrimary: "#E9532F",
-    colorPrimaryHover: "rgba(233, 83, 47, 0.08)",
+    colorPrimary: "#3E97FF",
+    // colorPrimaryHover: "rgba(233, 83, 47, 0.08)",
     fontFamily: "'Inter', sans-serif",
+    controlInteractiveSize: 20,
+    controlHeightLG: 40, // This may affect other controls too
+    controlHeightSM: 24,
   },
   components: {
     Input: {
@@ -15,6 +18,11 @@ export const antdThemeConfig: ThemeConfig = {
       boxShadow: "none",
       colorPrimary: "#F1F1F2",
       colorPrimaryHover: "rgba(233, 83, 47, 0.08)",
+    },
+    Checkbox: {
+      // colorText: "#111214",
+      // borderRadius: 8,
+      // boxShadow: "none",
     },
     DatePicker: {
       fontSize: 14,

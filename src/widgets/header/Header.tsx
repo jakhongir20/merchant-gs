@@ -57,7 +57,7 @@ export const Header: React.FC<Props> = ({ collapsed, setCollapsed }) => {
             align="center"
             className="mr-5 h-11 gap-2.5 rounded-[10px] border border-dashed border-gray-400 px-3.5 py-2.5"
           >
-            <Switch size="small" />
+            <Switch size="default" />
             <span className="">Без % Global Pay</span>
             <Icon name="info" color="text-gray" className="" />
           </Flex>
