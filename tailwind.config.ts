@@ -19,11 +19,7 @@ export default {
           400: "#D8D8E5",
           500: "#3F4254",
           600: "#181C32",
-        },
-        green: {
-          DEFAULT: "#38BA4E",
-          100: "#38BA4E",
-          200: "#50CD89",
+          700: "#475467",
         },
         red: {
           DEFAULT: "#E9532F",
@@ -31,8 +27,15 @@ export default {
           500: "#FFEDF2",
           10: "rgba(233, 83, 47, 0.10)",
         },
+        green: {
+          DEFAULT: "#38BA4E",
+          100: "#50CD89",
+          200: "#E8FFF3",
+        },
         blue: {
           DEFAULT: "#0D6EFD",
+          100: "#3E97FF",
+          200: "#EEF6FF",
         },
         orange: {
           DEFAULT: "#FD7E14",

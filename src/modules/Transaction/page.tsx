@@ -1,17 +1,23 @@
-import { CSummaryCard, Table } from "@/shared/ui";
+import {
+  CCardNumber,
+  CSummaryCard,
+  CTablePrice,
+  CTransactionIndicator,
+  Table,
+} from "@/shared/ui";
 import { ColumnsType } from "antd/es/table";
-import { ArrowLeftOutlined, ArrowUpOutlined } from "@ant-design/icons";
+import { PaymentType } from "@/shared/ui/common/CCardNumber";
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 // 1) Define the row interface
-interface TransactionRow {
+export interface TransactionRow {
   key: string;
   direction: "in" | "out";
   createdAt: string;
-  cardBrand: string;
+  cardBrand: PaymentType;
   cardNumber: string;
   amount: number; // store your sum in a numeric
-  status: "Успешно" | "В обработке" | "Возврат";
+  status: "success" | "pending" | "refund" | "rejected";
   store: string;
   id: string;
 }
@@ -22,10 +28,10 @@ const data: TransactionRow[] = [
     key: "1",
     direction: "in",
     createdAt: "1 Май 2024 14:51:37",
-    cardBrand: "VISA",
+    cardBrand: "visa",
     cardNumber: "**** 3622",
     amount: 42300000,
-    status: "Успешно",
+    status: "success",
     store: "Корзинка Юнусобод",
     id: "001",
   },
@@ -33,10 +39,10 @@ const data: TransactionRow[] = [
     key: "2",
     direction: "out",
     createdAt: "2 Май 2024 14:51:37",
-    cardBrand: "VISA",
+    cardBrand: "visa",
     cardNumber: "**** 1234",
     amount: -8500,
-    status: "Успешно",
+    status: "refund",
     store: "Корзинка Яшнобод",
     id: "002",
   },
@@ -44,10 +50,10 @@ const data: TransactionRow[] = [
     key: "3",
     direction: "in",
     createdAt: "1 Май 2024 14:51:37",
-    cardBrand: "UZCARD",
+    cardBrand: "uzcard",
     cardNumber: "**** 9850",
     amount: 969240.44,
-    status: "Успешно",
+    status: "rejected",
     store: "Корзинка Юнусобод",
     id: "003",
   },
@@ -55,10 +61,10 @@ const data: TransactionRow[] = [
     key: "4",
     direction: "out",
     createdAt: "30 Апр 2024 14:51:37",
-    cardBrand: "", // No brand needed for some?
+    cardBrand: "uzcard", // No brand needed for some?
     cardNumber: "**** 8205",
     amount: -1000,
-    status: "В обработке",
+    status: "pending",
     store: "Корзинка Хатирчи",
     id: "004",
   },
@@ -66,10 +72,10 @@ const data: TransactionRow[] = [
     key: "5",
     direction: "in",
     createdAt: "30 Апр 2024 14:51:37",
-    cardBrand: "HUMO",
+    cardBrand: "mastercard",
     cardNumber: "**** 9085",
     amount: 417000,
-    status: "Возврат",
+    status: "pending",
     store: "Корзинка Сергели",
     id: "005",
   },
@@ -77,10 +83,10 @@ const data: TransactionRow[] = [
     key: "6",
     direction: "in",
     createdAt: "29 Апр 2024 14:51:37",
-    cardBrand: "HUMO",
+    cardBrand: "humo",
     cardNumber: "**** 2033",
     amount: 103000,
-    status: "Успешно",
+    status: "rejected",
     store: "Корзинка Чилонзор",
     id: "006",
   },
@@ -93,27 +99,7 @@ const columns: ColumnsType<TransactionRow> = [
     dataIndex: "direction",
     render: (direction: TransactionRow["direction"]) => {
       // Show a colored arrow or icon
-      return direction === "in" ? (
-        <ArrowUpOutlined
-          style={{
-            color: "#2B78E4",
-            background: "#EAF2FF",
-            fontSize: 16,
-            borderRadius: "50%",
-            padding: 4,
-          }}
-        />
-      ) : (
-        <ArrowLeftOutlined
-          style={{
-            color: "#5CB85C",
-            background: "#ECF9EC",
-            fontSize: 16,
-            borderRadius: "50%",
-            padding: 4,
-          }}
-        />
-      );
+      return <CTransactionIndicator status={direction} />;
     },
     width: 70,
   },
@@ -125,32 +111,15 @@ const columns: ColumnsType<TransactionRow> = [
     title: "№ карты",
     dataIndex: "cardNumber",
     render: (masked, record) => (
-      <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-        {record.cardBrand && (
-          <img
-            src={`/assets/cards/${record.cardBrand.toLowerCase()}.svg`}
-            alt={record.cardBrand}
-            style={{ width: 32 }}
-          />
-        )}
-        <span>{masked}</span>
-      </div>
+      <CCardNumber type={record.cardBrand} number={masked} />
     ),
   },
   {
     title: "Сумма (UZS)",
     dataIndex: "amount",
-    render: (amount: number) => {
-      // show + sign for positive
-      const sign = amount > 0 ? "+" : "";
-      // e.g. format as string with space as thousands separator if needed
-      return (
-        <span style={{ fontWeight: 500 }}>
-          {sign}
-          {amount.toLocaleString("ru-RU")}
-        </span>
-      );
-    },
+    render: (amount: number, record) => (
+      <CTablePrice amount={amount} status={record.status} />
+    ),
   },
   {
     title: "Статус",
