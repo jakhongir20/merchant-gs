@@ -1,12 +1,15 @@
 import {
   CCardNumber,
+  CCopyable,
+  CRowItem,
+  CStatus,
   CSummaryCard,
   CTablePrice,
   CTransactionIndicator,
   Table,
 } from "@/shared/ui";
 import { ColumnsType } from "antd/es/table";
-import { PaymentType } from "@/shared/ui/common/CCardNumber";
+import { PaymentType, Status } from "@/shared/types";
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 // 1) Define the row interface
@@ -17,7 +20,7 @@ export interface TransactionRow {
   cardBrand: PaymentType;
   cardNumber: string;
   amount: number; // store your sum in a numeric
-  status: "success" | "pending" | "refund" | "rejected";
+  status: Status;
   store: string;
   id: string;
 }
@@ -31,7 +34,7 @@ const data: TransactionRow[] = [
     cardBrand: "visa",
     cardNumber: "**** 3622",
     amount: 42300000,
-    status: "success",
+    status: 1,
     store: "Корзинка Юнусобод",
     id: "001",
   },
@@ -41,8 +44,8 @@ const data: TransactionRow[] = [
     createdAt: "2 Май 2024 14:51:37",
     cardBrand: "visa",
     cardNumber: "**** 1234",
-    amount: -8500,
-    status: "refund",
+    amount: 8500,
+    status: 2,
     store: "Корзинка Яшнобод",
     id: "002",
   },
@@ -53,7 +56,7 @@ const data: TransactionRow[] = [
     cardBrand: "uzcard",
     cardNumber: "**** 9850",
     amount: 969240.44,
-    status: "rejected",
+    status: 3,
     store: "Корзинка Юнусобод",
     id: "003",
   },
@@ -63,8 +66,8 @@ const data: TransactionRow[] = [
     createdAt: "30 Апр 2024 14:51:37",
     cardBrand: "uzcard", // No brand needed for some?
     cardNumber: "**** 8205",
-    amount: -1000,
-    status: "pending",
+    amount: 1000,
+    status: 4,
     store: "Корзинка Хатирчи",
     id: "004",
   },
@@ -75,7 +78,7 @@ const data: TransactionRow[] = [
     cardBrand: "mastercard",
     cardNumber: "**** 9085",
     amount: 417000,
-    status: "pending",
+    status: 4,
     store: "Корзинка Сергели",
     id: "005",
   },
@@ -86,7 +89,7 @@ const data: TransactionRow[] = [
     cardBrand: "humo",
     cardNumber: "**** 2033",
     amount: 103000,
-    status: "rejected",
+    status: 1,
     store: "Корзинка Чилонзор",
     id: "006",
   },
@@ -124,37 +127,17 @@ const columns: ColumnsType<TransactionRow> = [
   {
     title: "Статус",
     dataIndex: "status",
-    render: (status: TransactionRow["status"]) => {
-      let bg = "#E1FFE0";
-      let color = "#5CB85C";
-      if (status === "Возврат") {
-        bg = "#FFEDED";
-        color = "#FF4D4F";
-      } else if (status === "В обработке") {
-        bg = "#FFF5E6";
-        color = "#FAAD14";
-      }
-      return (
-        <span
-          style={{
-            backgroundColor: bg,
-            color,
-            padding: "4px 8px",
-            borderRadius: 4,
-          }}
-        >
-          {status}
-        </span>
-      );
-    },
+    render: (status: TransactionRow["status"]) => <CStatus value={status} />,
   },
   {
     title: "Кассы",
     dataIndex: "store",
+    render: (store: string) => <CRowItem value={store} />,
   },
   {
     title: "ID",
     dataIndex: "id",
+    render: (id: string) => <CCopyable value={id} />,
   },
 ];
 
@@ -173,7 +156,6 @@ export default function TransactionPage() {
       <CSummaryCard label={"кол-во:"} value={"7 895 шт"} status={false} />
     </div>
   );
-  // StatisticCard
   return (
     <div>
       <Table

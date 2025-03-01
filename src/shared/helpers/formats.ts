@@ -16,3 +16,10 @@ export const formatPrice = (value: number | string) => {
   const withSpaces = intValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   return `${withSpaces}.00`;
 };
+
+export function formatAmount(value: number | string): string | undefined {
+  const str = typeof value === "number" ? String(value) : value;
+  const [intPart, decimalPart] = str.split(".");
+  const intWithSpaces = intPart?.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  return decimalPart ? `${intWithSpaces}.${decimalPart}` : intWithSpaces;
+}

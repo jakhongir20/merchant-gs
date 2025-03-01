@@ -1,17 +1,12 @@
 import { FC } from "react";
-import { cn } from "@/shared/helpers";
-
-export type PaymentType = "humo" | "uzcard" | "visa" | "mastercard";
+import { cn, maskCardNumber } from "@/shared/helpers";
+import { PaymentType } from "@/shared/types";
 
 interface Props {
   className?: string;
   type: PaymentType;
   number: string;
 }
-
-const maskCardNumber = (cardNumber: string): string => {
-  return `**** ${cardNumber.slice(-4)}`;
-};
 
 export const CCardNumber: FC<Props> = ({ className, type, number }) => {
   return (

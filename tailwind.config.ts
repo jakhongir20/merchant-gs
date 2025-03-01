@@ -20,17 +20,25 @@ export default {
           500: "#3F4254",
           600: "#181C32",
           700: "#475467",
+          800: "#344054",
+          900: "#667085",
+          1000: "#F2F4F7",
         },
         red: {
           DEFAULT: "#E9532F",
           100: "#F1416C",
+          200: "#B42318",
           500: "#FFEDF2",
+          600: "#FEF3F2",
           10: "rgba(233, 83, 47, 0.10)",
         },
         green: {
           DEFAULT: "#38BA4E",
           100: "#50CD89",
           200: "#E8FFF3",
+          300: "#ECFDF3",
+          400: "#027A48",
+          500: "#12B76A",
         },
         blue: {
           DEFAULT: "#0D6EFD",
@@ -38,7 +46,9 @@ export default {
           200: "#EEF6FF",
         },
         orange: {
-          DEFAULT: "#FD7E14",
+          DEFAULT: "#D3A400",
+          100: "#F4BE00",
+          200: "#FFF8DD",
         },
         white: {
           DEFAULT: "#FFFFFF",

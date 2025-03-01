@@ -2,3 +2,6 @@ export { CSummaryCard } from "./CSummaryCard";
 export { CTransactionIndicator } from "./CTransactionIndicator";
 export { CCardNumber } from "./CCardNumber";
 export { CTablePrice } from "./CTablePrice";
+export { CStatus } from "./CStatus";
+export { CRowItem } from "./CRowItem";
+export { CCopyable } from "./CCopyable";

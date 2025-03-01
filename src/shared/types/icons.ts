@@ -1,1 +1,20 @@
-export type IconType = 'arrow-indicator' | 'arrow-line' | 'arrow-up-s' | 'arrows' | 'check' | 'cross' | 'datepicker' | 'download-file' | 'filter' | 'finance' | 'home' | 'info' | 'notification' | 'refresh' | 'reverse' | 'search' | 'sun';
+export type IconType =
+  | "arrow-indicator"
+  | "arrow-line"
+  | "arrow-up-s"
+  | "arrows"
+  | "check"
+  | "copied"
+  | "copy"
+  | "cross"
+  | "datepicker"
+  | "download-file"
+  | "filter"
+  | "finance"
+  | "home"
+  | "info"
+  | "notification"
+  | "refresh"
+  | "reverse"
+  | "search"
+  | "sun";

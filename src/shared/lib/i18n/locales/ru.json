@@ -7,6 +7,13 @@
     "Input": {
       "Enter": "Введите ...",
       "Search": "Поиск"
+    },
+    "Status": {
+      "Success": "Успешно",
+      "InProgress": "В обработке",
+      "Refund": "Возврат",
+      "Rejected": "Отклонено",
+      "Unknown": "Неизвестно"
     }
   },
   "common": {

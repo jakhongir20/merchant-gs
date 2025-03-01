@@ -1,54 +1,25 @@
-import { FC } from "react";
-import { cn } from "@/shared/helpers";
+import { FC, ReactNode } from "react";
+import { cn, formatAmount } from "@/shared/helpers";
+import { Status } from "@/shared/types";
 
 interface Props {
   className?: string;
   amount: number;
-  status: "success" | "pending" | "refund" | "rejected";
+  status: Status;
 }
 
-// const STATUS_STYLES = {
-//   success: { label: "✅ Успешно", color: "#E6F7E6", textColor: "#4CAF50" },
-//   pending: { label: "⏳ В обработке", color: "#FFF3CD", textColor: "#856404" },
-//   refund: { label: "↩️ Возврат", color: "#EDEFF3", textColor: "#5A6270" },
-//   rejected: { label: "❌ Отклонен", color: "#F8D7DA", textColor: "#D32F2F" },
-// };
-
-const formatAmount = (amount: number | string): string => {
-  if (typeof amount === "string") {
-    amount = parseFloat(amount.replace(/\s/g, "")); // Remove spaces and convert to number
-  }
-
-  if (isNaN(amount)) return "Invalid"; // Handle invalid input
-
-  // Format with spaces (ru-RU locale)
-  const formatted = new Intl.NumberFormat("ru-RU").format(amount);
-
-  // Convert number to string for checking decimals
-  const amountStr = amount.toString();
-
-  // Keep decimals like ".90" or ".44"
-  if (amountStr.includes(".90") || amountStr.includes(".44")) {
-    return formatted;
-  }
-
-  // Remove unnecessary trailing zeros
-  return formatted.replace(/(\s?0+)$/, "");
-};
-
 export const CTablePrice: FC<Props> = ({ className, amount, status }) => {
-  let formattedAmount = formatAmount(amount);
-  // const statusInfo = STATUS_STYLES[status];
+  let formattedAmount: string | ReactNode = formatAmount(amount);
 
   switch (status) {
-    case "success":
+    case Status.Success:
       formattedAmount = `+${formattedAmount}`;
       break;
-    case "pending":
+    case Status.InProgress:
       formattedAmount = `-${formattedAmount}`;
       break;
-    case "refund":
-    case "rejected":
+    case Status.Refund:
+    case Status.Rejected:
       formattedAmount = <span className="line-through">{formattedAmount}</span>;
       break;
     default:

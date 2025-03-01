@@ -9,4 +9,7 @@ export {
   CTransactionIndicator,
   CCardNumber,
   CTablePrice,
+  CStatus,
+  CRowItem,
+  CCopyable,
 } from "@/shared/ui/common";
