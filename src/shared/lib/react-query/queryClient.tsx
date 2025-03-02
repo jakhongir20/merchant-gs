@@ -9,7 +9,7 @@ interface CustomError extends Error {
   };
 }
 
-export const queryClient = new QueryClient({
+export const queryAppClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 1, // Retry failed queries only once

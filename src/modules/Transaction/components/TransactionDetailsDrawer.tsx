@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { cn } from "@/shared/helpers";
-import { Drawer, Icon } from "@/shared/ui";
+import { Button, Drawer, Icon } from "@/shared/ui";
 import { useTranslation } from "react-i18next";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -31,8 +31,17 @@ export const TransactionDetailsDrawer: FC<Props> = ({
     <Drawer
       header={
         <div className="flex items-center gap-3">
-          <Icon name="home" color="text-gray" />
-          <Icon name="cross-rounded" color="text-gray" />
+          <Button color="primary" variant="filled" onClick={handleClose}>
+            ID
+          </Button>
+          <Button color="danger" variant="filled" onClick={handleClose}>
+            ID
+          </Button>
+          <Button color="default" variant="filled" onClick={handleClose}>
+            ID
+          </Button>
+          {/*<Icon name="home" color="text-gray" />*/}
+          {/*<Icon name="cross-rounded" color="text-gray" />*/}
         </div>
       }
       className={cn(className)}

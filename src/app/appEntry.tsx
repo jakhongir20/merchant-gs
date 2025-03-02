@@ -1,4 +1,4 @@
-import React from "react";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { AppRouter } from "@/app/routes";
 import { Providers } from "@/app/providers";
@@ -6,9 +6,9 @@ import "@/app/style/index.css";
 import "./i18n";
 
 createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
+  <StrictMode>
     <Providers>
       <AppRouter />
     </Providers>
-  </React.StrictMode>,
+  </StrictMode>,
 );

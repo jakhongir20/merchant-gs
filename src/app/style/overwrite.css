@@ -1,6 +1,6 @@
 /* Define color variables */
 :root {
-    --color-default-bg: #dfe2e6;
+    --color-default-bg: #F1F1F2;
     --color-default-text: #111214;
     --color-green-bg: #e5f5ee;
     --color-green-text: #38ba4e;
@@ -159,11 +159,10 @@
 /*    2px calc(100% * 16);*/
 /*}*/
 
-/*.ant-btn-color-default {*/
-/*  background-color: var(--color-default-bg) !important;*/
-/*  color: var(--color-default-text) !important;*/
-/*  outline-color: var(--color-default-bg) !important;*/
-/*}*/
+.ant-btn-color-default {
+    background-color: var(--color-default-bg) !important;
+    outline-color: var(--color-default-bg) !important;
+}
 
 /*.ant-btn-color-green {*/
 /*  background-color: var(--color-green-bg) !important;*/

@@ -8,7 +8,7 @@ import en_US from "antd/lib/locale/en_US";
 import { antdThemeConfig } from "@/app/style/antdThemeConfig";
 import { ConfigProvider } from "antd";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "@/shared/lib/react-query";
+import { queryAppClient } from "@/shared/lib/react-query";
 import { GlobalToastConfig } from "@/app/providers/GlobalToastConfig";
 import i18n from "@/app/i18n";
 import { Locale } from "antd/es/locale";
@@ -27,7 +27,7 @@ export function Providers({ children }: Props) {
   };
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryAppClient}>
       <ConfigProvider
         locale={locales[currentLocale]}
         theme={antdThemeConfig}

@@ -6,10 +6,30 @@ export const antdThemeConfig: ThemeConfig = {
     // colorPrimaryHover: "rgba(233, 83, 47, 0.08)",
     fontFamily: "'Inter', sans-serif",
     controlInteractiveSize: 20,
-    controlHeightLG: 40, // This may affect other controls too
+    controlHeightLG: 40,
     controlHeightSM: 24,
   },
   components: {
+    Button: {
+      borderRadius: 8,
+      fontWeight: 500,
+      fontSize: 14,
+      controlHeight: 40,
+      boxShadow: "none",
+      colorPrimaryBg: "#DFEEFF",
+      colorPrimaryBgHover: "#CCE5FF",
+      colorPrimaryBorder: "#DFEEFF",
+      colorPrimaryText: "#3E97FF",
+      colorPrimaryTextHover: "#2884EF",
+      colorPrimaryActive: "#2884EF",
+      colorErrorBg: "#FFE4EC",
+      colorErrorBgHover: "#FFBEBE",
+      colorErrorBgActive: "#FFBEBE",
+      colorErrorText: "#D9214E",
+      colorErrorTextHover: "#D9214E",
+      colorErrorBorder: "#FFEDED",
+      colorText: "#181C32",
+    },
     Input: {
       colorText: "#111214",
       borderRadius: 8,
@@ -19,6 +39,7 @@ export const antdThemeConfig: ThemeConfig = {
       colorPrimary: "#F1F1F2",
       colorPrimaryHover: "rgba(233, 83, 47, 0.08)",
     },
+
     Checkbox: {
       // colorText: "#111214",
       // borderRadius: 8,
@@ -27,13 +48,6 @@ export const antdThemeConfig: ThemeConfig = {
     DatePicker: {
       fontSize: 14,
       colorText: "#111214",
-    },
-    Button: {
-      borderRadius: 8,
-      fontWeight: 500,
-      fontSize: 14,
-      controlHeight: 40,
-      boxShadow: "none",
     },
     Select: {
       // controlItemBgHover: "red", // Background color for hovered options
