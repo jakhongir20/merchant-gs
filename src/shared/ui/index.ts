@@ -12,4 +12,5 @@ export {
   CStatus,
   CRowItem,
   CCopyable,
+  CDate,
 } from "@/shared/ui/common";
