@@ -10,17 +10,9 @@ type ReturnValues = {
 export const useToggle = (defaultValue?: boolean): ReturnValues => {
   const [isOpen, setIsOpen] = useState(defaultValue ?? false);
 
-  function toggle() {
-    setIsOpen(!isOpen);
-  }
-
-  function open() {
-    setIsOpen(true);
-  }
-
-  function close() {
-    setIsOpen(false);
-  }
+  const toggle = () => setIsOpen(!isOpen);
+  const open = () => setIsOpen(true);
+  const close = () => setIsOpen(false);
 
   return { isOpen, toggle, open, close };
 };

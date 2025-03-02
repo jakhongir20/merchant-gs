@@ -1,5 +1,9 @@
 import { Table } from "@/shared/ui";
-import { columns, TableHeader } from "@/modules/Transaction/components";
+import {
+  columns,
+  TableHeader,
+  TransactionDetailsDrawer,
+} from "@/modules/Transaction/components";
 import { TransactionRow } from "@/modules/Transaction/model";
 import { useState } from "react";
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -91,6 +95,11 @@ export default function TransactionPage() {
 
   return (
     <div>
+      <TransactionDetailsDrawer
+        open={isOpen}
+        setOpen={setIsOpen}
+        id={selectedRow?.id}
+      />
       <Table
         data={fakeData}
         columns={columns}

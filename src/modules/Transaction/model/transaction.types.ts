@@ -11,3 +11,9 @@ export interface TransactionRow {
   store: string;
   id: string;
 }
+
+export interface TransactionDetails {
+  status: Status;
+  store: string;
+  date: string;
+}

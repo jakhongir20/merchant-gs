@@ -1,58 +1,58 @@
-import { FC, useState } from "react";
-import { Button, Drawer as AntDrawer, DrawerProps, Space } from "antd";
+import { FC, ReactNode } from "react";
+import { Drawer as AntDrawer, DrawerProps } from "antd";
 import { cn } from "@/shared/helpers";
+import { Icon } from "@/shared/ui";
 
-interface Props {
+interface Props extends DrawerProps {
   className?: string;
+  open: DrawerProps["open"];
+  size?: DrawerProps["size"];
+  header: ReactNode;
+  placement?: DrawerProps["placement"];
+  onClose?: DrawerProps["onClose"];
 }
 
-export const Drawer: FC<Props> = ({ className }) => {
-  const [open, setOpen] = useState(false);
-  const [size, setSize] = useState<DrawerProps["size"]>();
-
-  const showDefaultDrawer = () => {
-    setSize("default");
-    setOpen(true);
-  };
-
-  const showLargeDrawer = () => {
-    setSize("large");
-    setOpen(true);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-  };
-
+export const Drawer: FC<Props> = ({
+  className,
+  open,
+  placement = "right",
+  size = "default",
+  header,
+  onClose,
+  ...rest
+}) => {
   return (
     <div className={cn(className)}>
-      <Space>
-        <Button type="primary" onClick={showDefaultDrawer}>
-          Open Default Size (378px)
-        </Button>
-        <Button type="primary" onClick={showLargeDrawer}>
-          Open Large Size (736px)
-        </Button>
-      </Space>
       <AntDrawer
-        title={`${size} Drawer`}
-        placement="right"
+        title={
+          <div className="flex items-center justify-between gap-4">
+            {header}
+            <div
+              className="group cursor-pointer transition-all"
+              onClick={onClose}
+            >
+              <Icon
+                name="cross-rounded"
+                className="transition-all group-hover:text-gray-100"
+              />
+            </div>
+          </div>
+        }
+        placement={placement}
         size={size}
+        width={size === "default" ? 454 : 600}
         onClose={onClose}
         open={open}
-        extra={
-          <Space>
-            <Button onClick={onClose}>Cancel</Button>
-            <Button type="primary" onClick={onClose}>
-              OK
-            </Button>
-          </Space>
-        }
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </AntDrawer>
+        destroyOnClose
+        closeIcon={null}
+        maskClosable={false}
+        styles={{
+          header: {
+            padding: 20,
+          },
+        }}
+        {...rest}
+      ></AntDrawer>
     </div>
   );
 };

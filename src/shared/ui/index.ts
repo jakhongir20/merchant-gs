@@ -4,6 +4,7 @@ export { Badge } from "@/shared/ui/Badge";
 export { Icon } from "@/shared/ui/Icon";
 export { Dropdown } from "@/shared/ui/Dropdown";
 export { Input } from "@/shared/ui/Input";
+export { Drawer } from "@/shared/ui/Drawer";
 export {
   CSummaryCard,
   CTransactionIndicator,

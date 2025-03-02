@@ -1,4 +1,4 @@
 export * from "./transaction.types";
-export * from "./purchase.queries";
-export * from "./purchase.mutations";
-export * from "./purchase.service";
+export * from "./transaction.queries";
+export * from "./transaction.mutations";
+export * from "./transaction.service";

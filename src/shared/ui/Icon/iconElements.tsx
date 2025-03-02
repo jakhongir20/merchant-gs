@@ -13,6 +13,7 @@ import Search from "@/shared/assets/icons/search.svg?react";
 import ArrowIndicator from "@/shared/assets/icons/arrow-indicator.svg?react";
 import ArrowLine from "@/shared/assets/icons/arrow-line.svg?react";
 import Cross from "@/shared/assets/icons/cross.svg?react";
+import CrossRounded from "@/shared/assets/icons/cross-rounded.svg?react";
 import Reverse from "@/shared/assets/icons/reverse.svg?react";
 import Check from "@/shared/assets/icons/check.svg?react";
 import Refresh from "@/shared/assets/icons/refresh.svg?react";
@@ -37,6 +38,7 @@ export const ICON_ELEMENTS = (
   "arrow-line": <ArrowLine style={{ height, width }} />,
   search: <Search style={{ height, width }} />,
   cross: <Cross style={{ height, width }} />,
+  "cross-rounded": <CrossRounded style={{ height, width }} />,
   reverse: <Reverse style={{ height, width }} />,
   check: <Check style={{ height, width }} />,
   refresh: <Refresh style={{ height, width }} />,

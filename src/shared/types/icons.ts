@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 export type IconType =
   | "arrow-indicator"
   | "arrow-line"
@@ -6,6 +8,7 @@ export type IconType =
   | "check"
   | "copied"
   | "copy"
+  | "cross-rounded"
   | "cross"
   | "datepicker"
   | "download-file"
