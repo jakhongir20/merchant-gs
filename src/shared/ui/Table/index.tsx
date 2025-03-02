@@ -30,34 +30,24 @@ export interface TableProps<T>
   children?: ReactNode;
 }
 
-export function Table<T extends object>(props: TableProps<T>) {
-  const {
-    className,
-    data,
-    columns,
-    loading,
-    pagination,
-    showDropdown,
-    showFilter,
-    showSearch = true,
-    filters,
-    onRowClick,
-    header,
-    footer,
-    showRowIndex = true,
-    children,
-    ...rest
-  } = props;
-
-  console.log(
-    loading,
-    pagination,
-    showDropdown,
-    showFilter,
-    filters,
-    onRowClick,
-  );
-
+/* eslint-disable @typescript-eslint/no-unused-vars */
+export const Table = <T extends object>({
+  className,
+  data,
+  columns,
+  loading,
+  pagination,
+  showDropdown,
+  showFilter,
+  showSearch = true,
+  filters,
+  onRowClick,
+  header,
+  footer,
+  showRowIndex = true,
+  children,
+  ...rest
+}: TableProps<T>) => {
   const TableHeader = () => {
     return (
       <div className="flex items-center justify-between">
@@ -95,7 +85,6 @@ export function Table<T extends object>(props: TableProps<T>) {
         title={TableHeader}
         rootClassName="[&_.ant-table-title]:!p-0 [&_.ant-table-title]:!mb-[30px] g-table"
         footer={footer}
-        {...rest}
         components={{
           header: {
             cell: (
@@ -148,8 +137,16 @@ export function Table<T extends object>(props: TableProps<T>) {
             },
           },
         }}
+        {...rest}
+        onRow={(record, rowIndex) => {
+          return {
+            onClick: () => {
+              onRowClick?.(record);
+            },
+          };
+        }}
       />
       {children}
     </div>
   );
-}
+};
