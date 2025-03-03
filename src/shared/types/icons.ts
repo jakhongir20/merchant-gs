@@ -20,4 +20,5 @@ export type IconType =
   | "refresh"
   | "reverse"
   | "search"
-  | "sun";
+  | "sun"
+  | "time";

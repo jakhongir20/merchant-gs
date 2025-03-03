@@ -1,4 +1,4 @@
-import { Button } from "@/shared/ui";
+import { Button, RangePicker } from "@/shared/ui";
 import { Divider } from "antd";
 import { useSearchParams } from "react-router-dom";
 import { useAppConstants } from "@/shared/hooks";
@@ -14,8 +14,8 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="flex items-center">
-      <div className="flex items-center justify-end gap-1.5">
+    <div className="flex items-center justify-end">
+      <div className="flex items-center gap-1.5">
         {PERIODS.map(({ label, value }) => {
           const isActive = value === activePeriod;
           const baseClasses = "!bg-transparent text-gray-100";
@@ -35,7 +35,9 @@ export default function DashboardPage() {
         })}
       </div>
       <Divider type="vertical" className="!mx-4 h-8" />
-      <div></div>
+      <div>
+        <RangePicker />
+      </div>
     </div>
   );
 }

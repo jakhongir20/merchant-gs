@@ -6,6 +6,8 @@ export { Dropdown } from "@/shared/ui/Dropdown";
 export { Input } from "@/shared/ui/Input";
 export { Drawer } from "@/shared/ui/Drawer";
 export { Tabs } from "@/shared/ui/Tabs";
+export { RangePicker } from "@/shared/ui/RangePicker";
+
 export {
   CSummaryCard,
   CTransactionIndicator,

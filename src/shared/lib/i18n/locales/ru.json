@@ -22,6 +22,11 @@
       "Month": "Месяц",
       "Quarter": "Квартал",
       "Year": "Год"
+    },
+    "Datepicker": {
+      "Placeholder": "dd.mm.yyyy",
+      "StartDate": "Дата начала",
+      "EndDate": "Дата окончания"
     }
   },
   "common": {
@@ -176,11 +181,6 @@
       "addPicture": "Добавить изображение",
       "formatFotAllowed": "Формат файла не разрешен",
       "fileSizeNotAllowed": "Размер файла превышает лимит"
-    },
-    "datepicker": {
-      "placeholder": "dd.mm.yyyy",
-      "startDate": "Дата начала",
-      "endDate": "Дата окончания"
     },
     "search": {
       "title": "Поиск",

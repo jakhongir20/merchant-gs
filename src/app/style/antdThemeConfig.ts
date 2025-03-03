@@ -46,8 +46,11 @@ export const antdThemeConfig: ThemeConfig = {
       // boxShadow: "none",
     },
     DatePicker: {
-      fontSize: 14,
-      colorText: "#111214",
+      fontSize: 13,
+      colorText: "#3E97FF",
+      borderRadius: 8,
+      controlHeight: 40,
+      boxShadow: "none",
     },
     Select: {
       // controlItemBgHover: "red", // Background color for hovered options
