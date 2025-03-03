@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const AppLayout: FC<Props> = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   /* eslint-disable @typescript-eslint/no-unused-vars */
 
   return (

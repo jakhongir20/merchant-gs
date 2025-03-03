@@ -26,7 +26,7 @@ export const CSummaryCard: FC<Props> = ({
       <Icon
         name="arrow-line"
         width={10}
-        className={status ? "text-green-200" : "rotate-180 text-red-100"}
+        className={status ? "text-green-100" : "rotate-180 text-red-100"}
       />
       <p className="text-base text-gray-600">{value} </p>
     </div>

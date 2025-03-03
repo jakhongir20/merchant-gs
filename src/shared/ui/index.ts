@@ -17,4 +17,5 @@ export {
   CRowItem,
   CCopyable,
   CDate,
+  CTrendBadge,
 } from "@/shared/ui/common";
