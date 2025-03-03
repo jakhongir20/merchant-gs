@@ -2,16 +2,10 @@ import { RouteObject } from "react-router-dom";
 import { IconType } from "@/shared/types";
 
 export type AppRouteObject = RouteObject & {
-  path: string;
+  path: RouteObject["path"];
   meta: {
     title: string;
     icon: IconType;
   };
-  children?: AppRouteObject[];
-};
-
-export type MenuData = {
-  title: string;
-  icon: IconType;
-  path: string;
+  children?: RouteObject["children"];
 };

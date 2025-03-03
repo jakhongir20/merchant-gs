@@ -13,3 +13,8 @@ export enum Status {
   Refund = 3, // Возврат
   Rejected = 4, // Отклонено
 }
+
+export interface Period {
+  label: string;
+  value: string;
+}

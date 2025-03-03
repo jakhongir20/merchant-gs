@@ -1,5 +1,6 @@
 import { AppRouteObject } from "@/shared/types";
 import { withLazyLoad } from "@/shared/hocs";
+import { DashboardLayout } from "@/modules/Dashboard";
 
 const routes: AppRouteObject[] = [
   {
@@ -8,7 +9,13 @@ const routes: AppRouteObject[] = [
       title: "Sidebar.Dashboard",
       icon: "home",
     },
-    element: withLazyLoad(() => import("@/modules/Transaction/page")),
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: withLazyLoad(() => import("@/modules/Dashboard/page")),
+      },
+    ],
   },
 ];
 

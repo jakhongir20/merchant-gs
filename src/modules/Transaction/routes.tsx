@@ -1,5 +1,6 @@
-import { AppRouteObject } from "@/shared/types";
+import { TransactionLayout } from "@/modules/Transaction";
 import { withLazyLoad } from "@/shared/hocs";
+import { AppRouteObject } from "@/shared/types";
 
 const routes: AppRouteObject[] = [
   {
@@ -8,7 +9,13 @@ const routes: AppRouteObject[] = [
       title: "Sidebar.Transaction",
       icon: "finance",
     },
-    element: withLazyLoad(() => import("@/modules/Transaction/page")),
+    element: <TransactionLayout />,
+    children: [
+      {
+        index: true,
+        element: withLazyLoad(() => import("@/modules/Transaction/page")),
+      },
+    ],
   },
 ];
 

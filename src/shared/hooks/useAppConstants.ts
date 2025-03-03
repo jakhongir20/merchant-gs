@@ -1,18 +1,15 @@
 import { useTranslation } from "react-i18next";
+import { Period } from "@/shared/types";
 
 export function useAppConstants() {
   const { t } = useTranslation();
 
-  const PARTNER_TYPES = [
-    { value: 1, label: t("common.status.customer") },
-    { value: 2, label: t("common.status.supplier") },
+  const PERIODS: Period[] = [
+    { label: t("Common.Period.Day"), value: "day" },
+    { label: t("Common.Period.Week"), value: "week" },
+    { label: t("Common.Period.Month"), value: "month" },
+    { label: t("Common.Period.Year"), value: "year" },
   ];
 
-  const PRODUCT_TYPES = [
-    { value: 1, label: t("common.status.purchase") },
-    { value: 2, label: t("common.status.production") },
-    { value: 3, label: t("common.status.sale") },
-  ];
-
-  return { PARTNER_TYPES, PRODUCT_TYPES };
+  return { PERIODS };
 }

@@ -1,15 +1,21 @@
 import React, { FC } from "react";
-import { cn } from "@/shared/helpers";
 import { Outlet } from "react-router-dom";
+import { Layout, theme } from "antd";
 
-interface Props {
-  className?: string;
-}
+interface Props {}
 
-export const TransactionLayout: FC<Props> = ({ className }) => {
+export const TransactionLayout: FC<Props> = () => {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
   return (
-    <div className={cn(className)}>
+    <Layout.Content
+      className="m-[30px] rounded-xl p-[30px]"
+      style={{
+        background: colorBgContainer,
+      }}
+    >
       <Outlet />
-    </div>
+    </Layout.Content>
   );
 };
