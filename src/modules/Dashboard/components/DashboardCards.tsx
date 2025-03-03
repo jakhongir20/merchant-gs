@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { cn } from "@/shared/helpers";
-import { DashboardCard, PieChart } from "@/modules/Dashboard/components/card";
+import { DashboardCard } from "@/modules/Dashboard/components/card";
+import { PieChart } from "@/modules/Dashboard/components/chart";
 
 interface Props {
   className?: string;
@@ -8,7 +9,12 @@ interface Props {
 
 export const DashboardCards: FC<Props> = ({ className }) => {
   return (
-    <div className={cn("mt-[30px] grid grid-cols-3 gap-[26px]", className)}>
+    <div
+      className={cn(
+        "grid gap-4 lg:grid-cols-2 xl:grid-cols-3 xl:gap-[26px]",
+        className,
+      )}
+    >
       <DashboardCard
         title="Доход компании"
         amount="1256890"
@@ -44,6 +50,7 @@ export const DashboardCards: FC<Props> = ({ className }) => {
       />
 
       <DashboardCard
+        className=""
         titleSize="small"
         title="Успешные"
         amount="38 250"

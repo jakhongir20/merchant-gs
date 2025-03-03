@@ -73,6 +73,12 @@ export default {
         "18": "18px",
       },
     },
+    // screens: {
+    //   // sm: '600px',
+    //   // md: '728px',
+    //   lg: "980px",
+    //   // xl: '1240px',
+    // },
   },
   plugins: [tailwindcssAnimate],
 };

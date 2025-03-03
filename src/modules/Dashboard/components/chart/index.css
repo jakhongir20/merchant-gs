@@ -1,0 +1,7 @@
+.pie-chart .recharts-wrapper {
+    max-width: 110px !important;
+}
+
+.pie-chart .recharts-responsive-container {
+    width: 110px !important;
+}

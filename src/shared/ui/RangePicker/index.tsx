@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { ComponentProps, FC } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { DatePicker as AntDatePicker } from "antd";
@@ -7,7 +7,7 @@ import { cn } from "@/shared/helpers";
 import { API_DATE_FORMAT, DATE_FORMAT } from "@/shared/constants";
 import dayjs from "dayjs";
 
-interface Props {
+interface Props extends ComponentProps<typeof AntDatePicker.RangePicker> {
   className?: string;
   from?: string;
   to?: string;
@@ -25,9 +25,9 @@ export const RangePicker: FC<Props> = ({
   return (
     <AntDatePicker.RangePicker
       format={DATE_FORMAT}
-      size="small"
       className={cn(
-        "!h-10 w-full !bg-[#DFEEFF] !px-3 !font-medium [&_.ant-picker-range-separator]:!pl-1.5",
+        "w-full !bg-[#DFEEFF] !px-3 !font-medium [&_.ant-picker-range-separator]:!pl-1.5",
+        rest?.size === "small" ? "!h-6" : "!h-10",
         className,
       )}
       variant="filled"

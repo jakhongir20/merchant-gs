@@ -66,7 +66,7 @@ export const Sidebar: FC<Props> = ({ collapsed }) => {
                   navigate(key);
                 },
                 className: cn(
-                  "!pl-4 !h-11 !m-0 !w-full",
+                  "!pl-4 !h-11 !m-0 !w-full !mb-1",
                   isActive ? "!bg-red-10" : "",
                 ),
               };

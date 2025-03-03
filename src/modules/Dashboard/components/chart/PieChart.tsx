@@ -17,7 +17,10 @@ interface Props {
 export const PieChart: FC<Props> = ({ className, data }) => {
   return (
     <div
-      className={cn("flex h-[110px] items-center justify-between", className)}
+      className={cn(
+        "pie-chart flex h-[110px] items-center justify-between",
+        className,
+      )}
     >
       <ResponsiveContainer>
         <RCPieChart>

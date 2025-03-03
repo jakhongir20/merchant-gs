@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from "react";
 import { cn, formatAmount } from "@/shared/helpers";
 import { CTrendBadge } from "@/shared/ui";
+import { Currency } from "@/shared/types";
 
 export interface Props {
   className?: string;
@@ -10,7 +11,7 @@ export interface Props {
   percentageChangeStatus: "up" | "down";
   titleSize?: "default" | "small";
   chartContent?: ReactNode;
-  currency?: "UZS" | "USD";
+  currency?: Currency;
 }
 
 export const DashboardCard: FC<Props> = ({
@@ -26,7 +27,7 @@ export const DashboardCard: FC<Props> = ({
   return (
     <div
       className={cn(
-        "relative flex h-60 w-full flex-col justify-between rounded-xl bg-white p-6",
+        "relative flex h-52 w-full flex-col justify-between rounded-xl bg-white p-4 xl:h-60 xl:p-6",
         className,
       )}
     >

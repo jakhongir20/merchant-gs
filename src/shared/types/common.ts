@@ -6,6 +6,7 @@ export type ResponseData<T> = {
 };
 
 export type PaymentType = "humo" | "uzcard" | "visa" | "mastercard";
+export type Currency = "UZS" | "USD";
 
 export enum Status {
   Success = 1, // Успешно

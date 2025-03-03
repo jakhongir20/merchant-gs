@@ -49,8 +49,6 @@ export const antdThemeConfig: ThemeConfig = {
       fontSize: 13,
       colorText: "#3E97FF",
       borderRadius: 8,
-      controlHeight: 40,
-      boxShadow: "none",
     },
     Select: {
       // controlItemBgHover: "red", // Background color for hovered options

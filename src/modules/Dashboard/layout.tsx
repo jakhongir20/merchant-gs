@@ -6,7 +6,7 @@ interface Props {}
 
 export const DashboardLayout: FC<Props> = () => {
   return (
-    <Layout.Content className="p-[30px]">
+    <Layout.Content className="p-5 xl:p-[30px]">
       <Outlet />
     </Layout.Content>
   );
