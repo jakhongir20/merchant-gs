@@ -22,7 +22,7 @@ export const DashboardCards: FC<Props> = ({ className }) => {
         percentageChangeStatus="up"
         currency="UZS"
         chartContent={
-          <div className="absolute bottom-0 right-0 flex items-center justify-center">
+          <div className="absolute -right-6 bottom-0 flex items-center justify-center">
             <img
               src="/dashboard/profit-image.svg"
               alt="profit-image"

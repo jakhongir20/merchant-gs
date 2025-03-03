@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import {
-  Area,
-  AreaChart,
+  Bar,
+  BarChart as BarChartUI,
   CartesianGrid,
   Line,
   ResponsiveContainer,
@@ -11,43 +11,37 @@ import {
 } from "recharts";
 import { cn } from "@/shared/helpers";
 import { CustomTooltip } from "@/modules/Dashboard/components/chart";
+import "./index.css";
 
 const data = [
-  { date: "2 Апр", amount: 10 },
-  { date: "5 Апр", amount: 35 },
-  { date: "8 Апр", amount: 35 },
-  { date: "11 Апр", amount: 25 },
-  { date: "14 Апр", amount: 25 },
-  { date: "17 Апр", amount: 15 },
-  { date: "20 Апр", amount: 15 },
-  { date: "23 Апр", amount: 30 },
-  { date: "26 Апр", amount: 30 },
-  { date: "29 Апр", amount: 18 },
-  { date: "2 Мая", amount: 18 },
+  { month: "Янв", amount: 42 },
+  { month: "Фев", amount: 35 },
+  { month: "Мар", amount: 32 },
+  { month: "Апр", amount: 15 },
+  { month: "Май", amount: 18 },
+  { month: "Июн", amount: 44 },
+  { month: "Июл", amount: 0 },
+  { month: "Авг", amount: 0 },
+  { month: "Сен", amount: 0 },
+  { month: "Окт", amount: 0 },
+  { month: "Ноя", amount: 0 },
+  { month: "Дек", amount: 0 },
 ];
 
 interface Props {
   className?: string;
 }
 
-// Main Component
-export const LineChart: FC<Props> = ({ className }) => {
+export const BarChart: FC<Props> = ({ className }) => {
   return (
     <div
       className={cn("rounded-xl bg-white p-4 xl:h-[430px] xl:p-6", className)}
     >
       <ResponsiveContainer>
-        <AreaChart
+        <BarChartUI
           data={data}
           margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
         >
-          <defs>
-            <linearGradient id="colorGreen" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#50CD89" stopOpacity={0.4} />
-              <stop offset="95%" stopColor="#50CD89" stopOpacity={0} />
-            </linearGradient>
-          </defs>
-
           <CartesianGrid
             strokeDasharray="3 3"
             vertical={false}
@@ -55,7 +49,7 @@ export const LineChart: FC<Props> = ({ className }) => {
           />
 
           <XAxis
-            dataKey="date"
+            dataKey="month"
             axisLine={{
               stroke: "#D8D8E5",
               strokeWidth: 1,
@@ -72,6 +66,7 @@ export const LineChart: FC<Props> = ({ className }) => {
             tick={{ fill: "#7E8299", fontSize: 14, fontWeight: 600 }}
             tickFormatter={(tick) => `${tick} ${tick ? "млн" : ""}`}
           />
+
           <Tooltip content={<CustomTooltip />} />
 
           <Line
@@ -85,28 +80,30 @@ export const LineChart: FC<Props> = ({ className }) => {
               fill: "white",
             }}
           />
-          <Area
-            type="monotone"
+
+          <defs>
+            <clipPath id="clip-bar">
+              <rect
+                x="0"
+                y="0"
+                width="100%"
+                height="100%"
+                rx="5"
+                ry="5"
+                style={{ transition: "none" }}
+              />
+            </clipPath>
+          </defs>
+
+          <Bar
             dataKey="amount"
-            stroke="#50CD89"
-            strokeWidth={2}
-            fill="url(#colorGreen)"
-            activeDot={{
-              r: 7,
-              stroke: "white",
-              strokeWidth: 2.5,
-              fill: "#50CD89",
-            }}
+            fill="#50CD89"
+            barSize={18}
+            radius={[5, 5, 0, 0]}
+            clipPath="url(#clip-bar)"
+            isAnimationActive={false} // Optional: Disable animation if you want a static bar
           />
-          <Line
-            type="monotone"
-            dataKey="amount"
-            stroke="rgba(40, 199, 111, 0.5)"
-            strokeWidth={2}
-            strokeDasharray="6 6"
-            dot={false}
-          />
-        </AreaChart>
+        </BarChartUI>
       </ResponsiveContainer>
     </div>
   );

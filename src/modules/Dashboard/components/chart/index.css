@@ -5,3 +5,8 @@
 .pie-chart .recharts-responsive-container {
     width: 110px !important;
 }
+
+.recharts-bar-rectangle:hover {
+    fill: #28C76F !important; /* Keeps original green color */
+    opacity: 1 !important; /* Ensures no transparency */
+}

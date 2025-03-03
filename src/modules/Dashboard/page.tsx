@@ -2,7 +2,7 @@ import {
   DashboardCards,
   DashboardPeriodFilters,
 } from "@/modules/Dashboard/components";
-import { LineChart } from "@/modules/Dashboard/components/chart";
+import { BarChart, LineChart } from "@/modules/Dashboard/components/chart";
 
 export default function DashboardPage() {
   return (
@@ -10,6 +10,7 @@ export default function DashboardPage() {
       <DashboardPeriodFilters />
       <DashboardCards />
       <LineChart />
+      <BarChart />
     </div>
   );
 }

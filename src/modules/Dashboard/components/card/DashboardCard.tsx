@@ -27,7 +27,7 @@ export const DashboardCard: FC<Props> = ({
   return (
     <div
       className={cn(
-        "relative flex h-52 w-full flex-col justify-between rounded-xl bg-white p-4 xl:h-60 xl:p-6",
+        "relative flex h-52 w-full flex-col justify-between overflow-hidden rounded-xl bg-white p-4 xl:h-60 xl:p-6",
         className,
       )}
     >
