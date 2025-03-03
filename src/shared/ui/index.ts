@@ -5,6 +5,7 @@ export { Icon } from "@/shared/ui/Icon";
 export { Dropdown } from "@/shared/ui/Dropdown";
 export { Input } from "@/shared/ui/Input";
 export { Drawer } from "@/shared/ui/Drawer";
+export { Tabs } from "@/shared/ui/Tabs";
 export {
   CSummaryCard,
   CTransactionIndicator,

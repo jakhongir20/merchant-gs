@@ -46,9 +46,15 @@ export const Drawer: FC<Props> = ({
         destroyOnClose
         closeIcon={null}
         maskClosable={false}
+        className={cn("!bg-[#F3F6F9]", className)}
         styles={{
           header: {
             padding: 20,
+            border: "none",
+            // borderColor: "#D8D8E5",
+          },
+          body: {
+            padding: 0,
           },
         }}
         {...rest}

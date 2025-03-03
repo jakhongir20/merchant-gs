@@ -164,6 +164,14 @@
     outline-color: var(--color-default-bg) !important;
 }
 
+.ant-divider {
+    border-color: #E1E3EA !important;
+}
+
+.ant-divider-horizontal {
+    margin: 22px 0 !important;
+}
+
 /*.ant-btn-color-green {*/
 /*  background-color: var(--color-green-bg) !important;*/
 /*  color: var(--color-green-text) !important;*/

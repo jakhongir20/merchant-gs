@@ -6,6 +6,7 @@ import { getStatusLabel } from "@/shared/utils";
 interface Props {
   className?: string;
   value: number;
+  size?: "default" | "small";
 }
 
 const generateStatus = (status: number) => {
@@ -37,14 +38,15 @@ const generateStatus = (status: number) => {
   }
 };
 
-export const CStatus: FC<Props> = ({ className, value }) => {
+export const CStatus: FC<Props> = ({ className, value, size = "default" }) => {
   const { label, color, iconElement } = generateStatus(Number(value));
 
   return (
     <div
       className={cn(
         color,
-        "flex h-[22px] max-w-max items-center gap-1 rounded-md px-2 py-[5px] font-medium",
+        "flex max-w-max items-center gap-1 rounded-md px-2 py-[5px] font-medium",
+        size === "small" ? "h-5 text-xs" : "h-[22px]",
         className,
       )}
     >

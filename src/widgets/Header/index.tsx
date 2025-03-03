@@ -1,5 +1,5 @@
+import { FC } from "react";
 import { Avatar, Flex, Layout, Row, Switch, theme } from "antd";
-import React from "react";
 import { Button, Icon } from "@/shared/ui";
 import { cn } from "@/shared/helpers";
 
@@ -9,7 +9,7 @@ interface Props {
   setCollapsed: (collapsed: boolean) => void;
 }
 
-export const Header: React.FC<Props> = ({ collapsed, setCollapsed }) => {
+export const Header: FC<Props> = ({ collapsed, setCollapsed }) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -22,7 +22,7 @@ export const Header: React.FC<Props> = ({ collapsed, setCollapsed }) => {
       }}
     >
       <Button
-        type="text"
+        type={"link"}
         className="top-[calc(50% - 17px)] absolute left-[-17px] z-20 flex h-8 !w-8 items-center justify-center gap-4 rounded-md border border-gray-300 bg-white hover:!bg-gray-300"
         icon={
           <Icon
@@ -44,7 +44,7 @@ export const Header: React.FC<Props> = ({ collapsed, setCollapsed }) => {
           <div className="flex h-[50px] w-[50px] items-center justify-center rounded-md bg-red-500">
             <img src="/test-brand.svg" alt="Brand" />
           </div>
-          <div className="ml-5 text-lg">
+          <div className="ml-3 text-lg">
             <div className="mb-1 flex items-center gap-2 text-xl font-bold text-gray-500">
               <span>OOO “Anglesey food”</span>
               <Icon name="arrow-up-s" width={18} />

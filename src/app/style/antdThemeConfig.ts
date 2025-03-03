@@ -16,6 +16,7 @@ export const antdThemeConfig: ThemeConfig = {
       fontSize: 14,
       controlHeight: 40,
       boxShadow: "none",
+      paddingInline: "10px",
       colorPrimaryBg: "#DFEEFF",
       colorPrimaryBgHover: "#CCE5FF",
       colorPrimaryBorder: "#DFEEFF",
@@ -39,7 +40,6 @@ export const antdThemeConfig: ThemeConfig = {
       colorPrimary: "#F1F1F2",
       colorPrimaryHover: "rgba(233, 83, 47, 0.08)",
     },
-
     Checkbox: {
       // colorText: "#111214",
       // borderRadius: 8,
@@ -65,7 +65,7 @@ export const antdThemeConfig: ThemeConfig = {
       fontSize: 12,
       paddingContentHorizontal: 12,
       paddingContentVertical: 8,
-      // padding: "7px 10px",
     },
+    Tabs: {},
   },
 };

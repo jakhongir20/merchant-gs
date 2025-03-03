@@ -19,6 +19,8 @@ import Check from "@/shared/assets/icons/check.svg?react";
 import Refresh from "@/shared/assets/icons/refresh.svg?react";
 import Copy from "@/shared/assets/icons/copy.svg?react";
 import Copied from "@/shared/assets/icons/copied.svg?react";
+import File from "@/shared/assets/icons/file.svg?react";
+import Print from "@/shared/assets/icons/print.svg?react";
 
 export const ICON_ELEMENTS = (
   height: IconProps["height"],
@@ -44,4 +46,6 @@ export const ICON_ELEMENTS = (
   refresh: <Refresh style={{ height, width }} />,
   copy: <Copy style={{ height, width }} />,
   copied: <Copied style={{ height, width }} />,
+  file: <File style={{ height, width }} />,
+  print: <Print style={{ height, width }} />,
 });
