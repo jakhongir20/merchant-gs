@@ -10,8 +10,6 @@ interface Props extends ButtonProps {
   variant?: "filled" | "outlined";
 }
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 export const Button: FC<Props> = ({
   className,
   children,
@@ -34,7 +32,9 @@ export const Button: FC<Props> = ({
               "flex items-center justify-center",
               rest.color === "danger"
                 ? "[&_.base-index]:!text-red-300"
-                : "[&_.base-index]:!text-gray-900",
+                : rest.color === "default"
+                  ? "[&_.base-index]:!text-gray-900"
+                  : "",
             )}
           >
             {icon}
@@ -42,7 +42,7 @@ export const Button: FC<Props> = ({
         ) : null
       }
     >
-      <span className={textColor}>{children}</span>
+      {children && <span className={textColor}>{children}</span>}
     </AntButton>
   );
 };
