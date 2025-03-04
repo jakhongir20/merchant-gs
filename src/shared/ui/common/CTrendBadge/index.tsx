@@ -4,7 +4,7 @@ import { Icon } from "@/shared/ui";
 
 interface Props {
   className?: string;
-  status: "up" | "down";
+  status?: "up" | "down";
   value: number | string;
 }
 

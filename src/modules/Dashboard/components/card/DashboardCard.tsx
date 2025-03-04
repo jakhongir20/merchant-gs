@@ -6,12 +6,14 @@ import { Currency } from "@/shared/types";
 export interface Props {
   className?: string;
   title: string;
-  amount: string | number;
-  percentageChange: string;
-  percentageChangeStatus: "up" | "down";
+  amount?: string | number;
+  percentageChange?: string;
+  percentageChangeStatus?: "up" | "down";
   titleSize?: "default" | "small";
   chartContent?: ReactNode;
+  titleRightContent?: ReactNode;
   currency?: Currency;
+  titleClassName?: string;
 }
 
 export const DashboardCard: FC<Props> = ({
@@ -23,6 +25,8 @@ export const DashboardCard: FC<Props> = ({
   titleSize = "default",
   currency,
   chartContent,
+  titleClassName = "",
+  titleRightContent,
 }) => {
   return (
     <div
@@ -38,14 +42,18 @@ export const DashboardCard: FC<Props> = ({
             titleSize === "small" ? "mb-0.5" : "mb-1",
           )}
         >
-          <h3
-            className={cn(
-              "font-semibold text-gray",
-              titleSize === "small" ? "text-sm" : "text-base",
-            )}
-          >
-            {title}
-          </h3>
+          <div className="flex w-full items-center justify-between">
+            <h3
+              className={cn(
+                "font-semibold text-gray",
+                titleSize === "small" ? "text-sm" : "text-base",
+                titleClassName,
+              )}
+            >
+              {title}
+            </h3>
+            {(titleRightContent ??= titleRightContent)}
+          </div>
         </div>
         <div className="flex items-center gap-2">
           <div
@@ -54,7 +62,7 @@ export const DashboardCard: FC<Props> = ({
               titleSize === "small" ? "text-xl" : "text-2xl",
             )}
           >
-            {formatAmount(amount)}
+            {amount && formatAmount(amount)}
             {currency && (
               <span className="text-base font-semibold text-gray">
                 {currency}

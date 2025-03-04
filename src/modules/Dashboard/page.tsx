@@ -1,8 +1,8 @@
+import { BarChart, LineChart } from "@/modules/Dashboard/components/chart";
 import {
   DashboardCards,
   DashboardPeriodFilters,
 } from "@/modules/Dashboard/components";
-import { BarChart, LineChart } from "@/modules/Dashboard/components/chart";
 
 export default function DashboardPage() {
   return (

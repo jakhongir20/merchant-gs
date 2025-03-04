@@ -26,7 +26,7 @@ export const Header: FC<Props> = ({ collapsed, setCollapsed }) => {
         className="top-[calc(50% - 17px)] absolute left-[-17px] z-20 flex h-8 !w-8 items-center justify-center gap-4 rounded-md border border-gray-300 bg-white hover:!bg-gray-300"
         icon={
           <Icon
-            name="arrows"
+            name="arrow-double"
             width={13}
             className={cn(collapsed ? "rotate-180" : "")}
           />

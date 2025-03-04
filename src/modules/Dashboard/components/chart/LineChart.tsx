@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import {
   Area,
   AreaChart,
@@ -11,6 +11,8 @@ import {
 } from "recharts";
 import { cn } from "@/shared/helpers";
 import { CustomTooltip } from "@/modules/Dashboard/components/chart";
+import { Icon, LabeledSelect } from "@/shared/ui";
+import { Switch } from "antd";
 
 const data = [
   { date: "2 Апр", amount: 10 },
@@ -32,11 +34,47 @@ interface Props {
 
 // Main Component
 export const LineChart: FC<Props> = ({ className }) => {
+  const options = [
+    { label: "Успешные", value: "successful" },
+    { label: "Отклоненные", value: "rejected" },
+    { label: "Возврат", value: "refund" },
+  ];
+  const [status, setStatus] = useState("successful");
+
   return (
     <div
-      className={cn("rounded-xl bg-white p-4 xl:h-[430px] xl:p-6", className)}
+      className={cn(
+        "flex flex-col gap-7 rounded-xl bg-white p-4 xl:p-6",
+        className,
+      )}
     >
-      <ResponsiveContainer>
+      <div className="flex items-center justify-between">
+        <h2 className="text-xl font-semibold text-gray-500">
+          Динамика транзакций (UZS)
+        </h2>
+        <div className="flex items-center gap-2">
+          <LabeledSelect
+            label={"Статус"}
+            value={status}
+            options={options}
+            onChange={setStatus}
+          />
+          <div className="flex items-center gap-2.5">
+            <Switch />
+            <LabeledSelect
+              label={"Платежные системы"}
+              value={status}
+              options={[
+                { label: "Все", value: "all" },
+                { label: "Отклоненные", value: "rejected" },
+                { label: "Возврат", value: "refund" },
+              ]}
+              onChange={setStatus}
+            />
+          </div>
+        </div>
+      </div>
+      <ResponsiveContainer width="100%" height={300}>
         <AreaChart
           data={data}
           margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
@@ -108,6 +146,20 @@ export const LineChart: FC<Props> = ({ className }) => {
           />
         </AreaChart>
       </ResponsiveContainer>
+      <div className="flex items-center gap-2.5">
+        <Switch />
+        <LabeledSelect
+          label={"Сравнивать с"}
+          labelIcon={<Icon name="chart" color="text-gray-100" />}
+          value={status}
+          options={[
+            { label: "Все", value: "all" },
+            { label: "Отклоненные", value: "rejected" },
+            { label: "Возврат", value: "refund" },
+          ]}
+          onChange={setStatus}
+        />
+      </div>
     </div>
   );
 };

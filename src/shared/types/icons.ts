@@ -1,8 +1,10 @@
 export type IconType =
+  | "arrow-double"
   | "arrow-indicator"
   | "arrow-line"
   | "arrow-up-s"
-  | "arrows"
+  | "arrow"
+  | "chart"
   | "check"
   | "copied"
   | "copy"

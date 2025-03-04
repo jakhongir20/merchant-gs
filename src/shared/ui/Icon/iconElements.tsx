@@ -1,7 +1,7 @@
 import { IconProps } from "@/shared/ui/Icon/index";
 import Home from "@/shared/assets/icons/home.svg?react";
 import Finance from "@/shared/assets/icons/finance.svg?react";
-import Arrows from "@/shared/assets/icons/arrows.svg?react";
+import ArrowDouble from "@/shared/assets/icons/arrow-double.svg?react";
 import Filter from "@/shared/assets/icons/filter.svg?react";
 import Datepicker from "@/shared/assets/icons/datepicker.svg?react";
 import Sun from "@/shared/assets/icons/sun.svg?react";
@@ -22,6 +22,8 @@ import Copied from "@/shared/assets/icons/copied.svg?react";
 import File from "@/shared/assets/icons/file.svg?react";
 import Print from "@/shared/assets/icons/print.svg?react";
 import Time from "@/shared/assets/icons/time.svg?react";
+import Arrow from "@/shared/assets/icons/arrow.svg?react";
+import Chart from "@/shared/assets/icons/chart.svg?react";
 
 export const ICON_ELEMENTS = (
   height: IconProps["height"],
@@ -29,7 +31,6 @@ export const ICON_ELEMENTS = (
 ) => ({
   home: <Home style={{ height, width }} />,
   finance: <Finance style={{ height, width }} />,
-  arrows: <Arrows style={{ height, width }} />,
   filter: <Filter style={{ height, width }} />,
   datepicker: <Datepicker style={{ height, width }} />,
   sun: <Sun style={{ height, width }} />,
@@ -39,6 +40,8 @@ export const ICON_ELEMENTS = (
   "arrow-up-s": <ArrowUpSquare style={{ height, width }} />,
   "arrow-indicator": <ArrowIndicator style={{ height, width }} />,
   "arrow-line": <ArrowLine style={{ height, width }} />,
+  "arrow-double": <ArrowDouble style={{ height, width }} />,
+  arrow: <Arrow style={{ height, width }} />,
   search: <Search style={{ height, width }} />,
   cross: <Cross style={{ height, width }} />,
   "cross-rounded": <CrossRounded style={{ height, width }} />,
@@ -50,4 +53,5 @@ export const ICON_ELEMENTS = (
   file: <File style={{ height, width }} />,
   print: <Print style={{ height, width }} />,
   time: <Time style={{ height, width }} />,
+  chart: <Chart style={{ height, width }} />,
 });

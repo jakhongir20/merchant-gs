@@ -7,6 +7,7 @@ export { Input } from "@/shared/ui/Input";
 export { Drawer } from "@/shared/ui/Drawer";
 export { Tabs } from "@/shared/ui/Tabs";
 export { RangePicker } from "@/shared/ui/RangePicker";
+export { LabeledSelect } from "@/shared/ui/LabeledSelect";
 
 export {
   CSummaryCard,

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import {
   Bar,
   BarChart as BarChartUI,
@@ -10,8 +10,10 @@ import {
   YAxis,
 } from "recharts";
 import { cn } from "@/shared/helpers";
-import { CustomTooltip } from "@/modules/Dashboard/components/chart";
+import { CustomTooltip, tick } from "@/modules/Dashboard/components/chart";
 import "./index.css";
+import { Icon, LabeledSelect } from "@/shared/ui";
+import { Switch } from "antd";
 
 const data = [
   { month: "Янв", amount: 42 },
@@ -33,11 +35,56 @@ interface Props {
 }
 
 export const BarChart: FC<Props> = ({ className }) => {
+  const options = [
+    { label: "Успешные", value: "successful" },
+    { label: "Отклоненные", value: "rejected" },
+    { label: "Возврат", value: "refund" },
+  ];
+  const [status, setStatus] = useState("successful");
+
   return (
     <div
-      className={cn("rounded-xl bg-white p-4 xl:h-[430px] xl:p-6", className)}
+      className={cn(
+        "flex flex-col gap-7 rounded-xl bg-white p-4 xl:p-6",
+        className,
+      )}
     >
-      <ResponsiveContainer>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <h2 className="text-xl font-semibold text-gray-500">
+            Динамика транзакций{" "}
+            <span className="text-blue-300">за текущий год</span> (UZS)
+          </h2>
+          <Icon
+            name="arrow-up-s"
+            color="text-gray"
+            className="cursor-pointer"
+            width={24}
+          />
+        </div>
+        <div className="flex items-center gap-2">
+          <LabeledSelect
+            label={"Статус"}
+            value={status}
+            options={options}
+            onChange={setStatus}
+          />
+          <div className="flex items-center gap-2.5">
+            <Switch />
+            <LabeledSelect
+              label={"Платежные системы"}
+              value={status}
+              options={[
+                { label: "Все", value: "all" },
+                { label: "Отклоненные", value: "rejected" },
+                { label: "Возврат", value: "refund" },
+              ]}
+              onChange={setStatus}
+            />
+          </div>
+        </div>
+      </div>
+      <ResponsiveContainer width="100%" height={300}>
         <BarChartUI
           data={data}
           margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
@@ -56,14 +103,14 @@ export const BarChart: FC<Props> = ({ className }) => {
               strokeDasharray: "3 3",
             }}
             tickLine={false}
-            tick={{ fill: "#7E8299", fontSize: 14, fontWeight: 600, dy: 8 }}
+            tick={{ ...tick, dy: 8 }}
           />
           <YAxis
             axisLine={{
               strokeWidth: 0,
             }}
             tickLine={false}
-            tick={{ fill: "#7E8299", fontSize: 14, fontWeight: 600 }}
+            tick={tick}
             tickFormatter={(tick) => `${tick} ${tick ? "млн" : ""}`}
           />
 
@@ -88,8 +135,8 @@ export const BarChart: FC<Props> = ({ className }) => {
                 y="0"
                 width="100%"
                 height="100%"
-                rx="5"
-                ry="5"
+                rx="6"
+                ry="6"
                 style={{ transition: "none" }}
               />
             </clipPath>
@@ -99,12 +146,26 @@ export const BarChart: FC<Props> = ({ className }) => {
             dataKey="amount"
             fill="#50CD89"
             barSize={18}
-            radius={[5, 5, 0, 0]}
+            radius={[6, 6, 0, 0]}
             clipPath="url(#clip-bar)"
-            isAnimationActive={false} // Optional: Disable animation if you want a static bar
+            isAnimationActive={false}
           />
         </BarChartUI>
       </ResponsiveContainer>
+      <div className="flex items-center gap-2.5">
+        <Switch />
+        <LabeledSelect
+          label={"Сравнивать с"}
+          labelIcon={<Icon name="chart" color="text-gray-100" />}
+          value={status}
+          options={[
+            { label: "Все", value: "all" },
+            { label: "Отклоненные", value: "rejected" },
+            { label: "Возврат", value: "refund" },
+          ]}
+          onChange={setStatus}
+        />
+      </div>
     </div>
   );
 };
