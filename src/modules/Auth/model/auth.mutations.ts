@@ -4,7 +4,7 @@ import {
   LoginFormData,
   LoginMutationOptions,
   LoginResponse,
-} from "@/modules/Auth/login/model/index";
+} from "@/modules/Auth/model/index";
 
 export function useLogin(options?: LoginMutationOptions) {
   const mutationFn: MutationFunction<LoginResponse, LoginFormData> = async (
@@ -12,7 +12,7 @@ export function useLogin(options?: LoginMutationOptions) {
   ) => await AuthService.login(loginData);
 
   return useMutation<LoginResponse, unknown, LoginFormData>({
-    mutationKey: ["auth", "login-user"],
+    mutationKey: ["auth", "login"],
     mutationFn,
     ...options,
   });

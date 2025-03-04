@@ -5,6 +5,8 @@ import { AppRouteObject } from "@/shared/types";
 import { ProtectedRoute } from "@/shared/hocs";
 import { transactionRoutes } from "@/modules/Transaction";
 import { dashboardRoutes } from "@/modules/Dashboard";
+import LoginPage from "@/modules/Auth/page";
+import { AuthLayout } from "@/modules/Auth/layout";
 
 export const pagesRoutes: AppRouteObject[] = [
   ...dashboardRoutes,
@@ -21,16 +23,16 @@ export const routes: RouteObject[] = [
     ),
     children: pagesRoutes,
   },
-  // {
-  //     path: "/Auth",
-  //     element: <AuthLayout/>,
-  //     children: [
-  //         {
-  //             path: "/Auth/login",
-  //             element: <LoginPage/>,
-  //         },
-  //     ],
-  // },
+  {
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
+      {
+        path: "/auth/login",
+        element: <LoginPage />,
+      },
+    ],
+  },
 ];
 
 export const router = createBrowserRouter(routes);
