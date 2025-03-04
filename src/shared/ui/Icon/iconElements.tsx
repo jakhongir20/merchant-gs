@@ -24,6 +24,7 @@ import Print from "@/shared/assets/icons/print.svg?react";
 import Time from "@/shared/assets/icons/time.svg?react";
 import Arrow from "@/shared/assets/icons/arrow.svg?react";
 import Chart from "@/shared/assets/icons/chart.svg?react";
+import Decline from "@/shared/assets/icons/decline.svg?react";
 
 export const ICON_ELEMENTS = (
   height: IconProps["height"],
@@ -54,4 +55,5 @@ export const ICON_ELEMENTS = (
   print: <Print style={{ height, width }} />,
   time: <Time style={{ height, width }} />,
   chart: <Chart style={{ height, width }} />,
+  decline: <Decline style={{ height, width }} />,
 });

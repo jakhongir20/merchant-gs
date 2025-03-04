@@ -17,7 +17,7 @@ export const Icon: FC<IconProps> = ({
   name,
   size = 16,
   height = "100%",
-  width = "100%",
+  width = 20,
   color = "text-gray",
   className,
   children,

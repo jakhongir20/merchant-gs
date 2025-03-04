@@ -38,6 +38,10 @@
     inset-inline-start: 3px !important;
 }
 
+.ant-btn-color-dangerous.ant-btn-variant-filled:not(:disabled):not(.ant-btn-disabled):hover {
+    background-color: rgba(251, 213, 224, 0.85) !important;
+}
+
 /* Use color variables */
 /*.ant-select-selector {*/
 /*  background-color: var(--color-select-bg) !important;*/

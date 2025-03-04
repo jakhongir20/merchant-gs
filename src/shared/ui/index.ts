@@ -11,7 +11,7 @@ export { LabeledSelect } from "@/shared/ui/LabeledSelect";
 
 export {
   CSummaryCard,
-  CTransactionIndicator,
+  CIndicator,
   CCardNumber,
   CTablePrice,
   CStatus,

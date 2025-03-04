@@ -11,6 +11,7 @@ export type IconType =
   | "cross-rounded"
   | "cross"
   | "datepicker"
+  | "decline"
   | "download-file"
   | "file"
   | "filter"

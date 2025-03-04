@@ -1,5 +1,5 @@
 export { CSummaryCard } from "./CSummaryCard";
-export { CTransactionIndicator } from "./CTransactionIndicator";
+export { CIndicator } from "./CIndicator";
 export { CCardNumber } from "./CCardNumber";
 export { CTablePrice } from "./CTablePrice";
 export { CStatus } from "./CStatus";

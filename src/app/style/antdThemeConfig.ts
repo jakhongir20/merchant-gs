@@ -13,7 +13,7 @@ export const antdThemeConfig: ThemeConfig = {
     Button: {
       borderRadius: 8,
       fontWeight: 500,
-      fontSize: 14,
+      fontSize: 13,
       controlHeight: 40,
       boxShadow: "none",
       paddingInline: "10px",
@@ -24,8 +24,7 @@ export const antdThemeConfig: ThemeConfig = {
       colorPrimaryTextHover: "#2884EF",
       colorPrimaryActive: "#2884EF",
       colorErrorBg: "#FFE4EC",
-      colorErrorBgHover: "#FFBEBE",
-      colorErrorBgActive: "#FFBEBE",
+      colorErrorBgActive: "##D9214E",
       colorErrorText: "#D9214E",
       colorErrorTextHover: "#D9214E",
       colorErrorBorder: "#FFEDED",

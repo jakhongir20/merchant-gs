@@ -31,11 +31,15 @@ export const Sidebar: FC<Props> = ({ collapsed }) => {
       <div>
         <div
           className={cn(
-            "mb-10 mt-5 flex items-center transition-all duration-300 ease-in-out",
-            collapsed ? "" : "px-4",
+            "mb-10 mt-5 flex h-10 min-h-10 items-center transition-all",
+            collapsed ? "px-2" : "px-4",
           )}
         >
-          <img src="/logo.svg" alt="Logo" />
+          <img
+            className=""
+            src={collapsed ? "/logo-circle.svg" : "/logo.svg"}
+            alt="Logo"
+          />
         </div>
         <Menu
           theme="light"
@@ -58,7 +62,7 @@ export const Sidebar: FC<Props> = ({ collapsed }) => {
                   <Icon
                     name={item.meta.icon}
                     color={isActive ? "!text-red" : "!text-gray"}
-                    width={collapsed ? "100%" : ""}
+                    width={20}
                     className={cn(collapsed ? "!align-middle" : "")}
                   />
                 ),
@@ -68,6 +72,7 @@ export const Sidebar: FC<Props> = ({ collapsed }) => {
                 className: cn(
                   "!pl-4 !h-11 !m-0 !w-full !mb-1",
                   isActive ? "!bg-red-10" : "",
+                  // collapsed ? "" : "!pl-4",
                 ),
               };
             }) as unknown as MenuProps["items"]

@@ -26,7 +26,7 @@ export const DashboardCards: FC<Props> = ({ className }) => {
         chartContent={
           <div className="absolute -right-6 bottom-0 flex items-center justify-center">
             <img
-              src="/dashboard/profit-image.svg"
+              src="/svg/dashboard/profit-image.svg"
               alt="profit-image"
               className=""
             />
@@ -90,7 +90,7 @@ export const DashboardCards: FC<Props> = ({ className }) => {
           <div>
             <div className="absolute bottom-2.5 right-0 flex items-center justify-center">
               <img
-                src="/dashboard/payment-image.svg"
+                src="/svg/dashboard/payment-image.svg"
                 alt="payment-image"
                 className=""
               />

@@ -3,10 +3,10 @@ import {
   CCardNumber,
   CCopyable,
   CDate,
+  CIndicator,
   CRowItem,
   CStatus,
   CTablePrice,
-  CTransactionIndicator,
 } from "@/shared/ui";
 import { TransactionRow } from "@/modules/Transaction/model";
 
@@ -17,7 +17,7 @@ export const columns: ColumnsType<TransactionRow> = [
     render: (direction: TransactionRow["direction"]) => {
       return (
         <div className="flex justify-center">
-          <CTransactionIndicator status={direction} />
+          <CIndicator status={direction} />
         </div>
       );
     },
@@ -31,8 +31,8 @@ export const columns: ColumnsType<TransactionRow> = [
   {
     title: "№ карты",
     dataIndex: "cardNumber",
-    render: (masked, record) => (
-      <CCardNumber type={record.cardBrand} number={masked} />
+    render: (cardNumber, record) => (
+      <CCardNumber type={record.cardBrand} number={cardNumber} />
     ),
   },
   {

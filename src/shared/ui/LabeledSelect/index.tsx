@@ -30,7 +30,7 @@ export const LabeledSelect: FC<Props> = ({
         className="text-xs font-semibold text-gray-600 [&_.ant-select-selection-item]:!text-xs [&_.ant-select-selection-item]:!font-semibold"
         rootClassName="[&_.ant-select-item-option-content]:!text-xs [&_.ant-select-item]:!min-h-max [&_.ant-select-item]:!my-[1px]"
         variant={"borderless"}
-        suffixIcon={<Icon name="arrow" />}
+        suffixIcon={<Icon name="arrow" width={11} />}
         popupMatchSelectWidth={false}
       />
     </div>

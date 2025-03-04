@@ -20,20 +20,29 @@ export const Button: FC<Props> = ({
   variant = "filled",
   ...rest
 }) => {
+  const textColor = rest.color === "danger" ? "text-[#D9214E]" : "text-600";
   return (
     <AntButton
       loading={loading}
       className={cn(className)}
       variant={variant}
-      // className={`flex h-10 items-center !gap-1 px-6 py-2.5 leading-[18.2px] shadow-none ${className}`}
       {...rest}
       icon={
         icon ? (
-          <span className="flex items-center justify-center">{icon}</span>
+          <span
+            className={cn(
+              "flex items-center justify-center",
+              rest.color === "danger"
+                ? "[&_.base-index]:!text-[#D9214E]"
+                : "[&_.base-index]:!text-900",
+            )}
+          >
+            {icon}
+          </span>
         ) : null
       }
     >
-      {children}
+      <span className={textColor}>{children}</span>
     </AntButton>
   );
 };
