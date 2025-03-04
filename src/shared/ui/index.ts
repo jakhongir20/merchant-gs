@@ -8,6 +8,9 @@ export { Drawer } from "@/shared/ui/Drawer";
 export { Tabs } from "@/shared/ui/Tabs";
 export { RangePicker } from "@/shared/ui/RangePicker";
 export { LabeledSelect } from "@/shared/ui/LabeledSelect";
+export { Alert } from "@/shared/ui/Alert";
+export { Divider } from "@/shared/ui/Divider";
+export { DottedTag } from "@/shared/ui/DottedTag";
 
 export {
   CSummaryCard,

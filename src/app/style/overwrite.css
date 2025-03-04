@@ -42,6 +42,17 @@
     background-color: rgba(251, 213, 224, 0.85) !important;
 }
 
+.ant-input::placeholder {
+    color: #7E8299 !important;
+    font-size: 12px;
+    font-style: normal;
+}
+
+.ant-input-outlined {
+    border-color: #E1E3EA !important;
+}
+
+
 /* Use color variables */
 /*.ant-select-selector {*/
 /*  background-color: var(--color-select-bg) !important;*/
@@ -173,13 +184,13 @@
     outline-color: var(--color-default-bg) !important;
 }
 
-.ant-divider {
-    border-color: #E1E3EA !important;
-}
+/*.ant-divider {*/
+/*    border-color: #E1E3EA !important;*/
+/*}*/
 
-.ant-divider-horizontal {
-    margin: 22px 0 !important;
-}
+/*.ant-divider-horizontal {*/
+/*    margin: 22px 0 !important;*/
+/*}*/
 
 /*.ant-btn-color-green {*/
 /*  background-color: var(--color-green-bg) !important;*/

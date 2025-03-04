@@ -25,6 +25,7 @@ import Time from "@/shared/assets/icons/time.svg?react";
 import Arrow from "@/shared/assets/icons/arrow.svg?react";
 import Chart from "@/shared/assets/icons/chart.svg?react";
 import Decline from "@/shared/assets/icons/decline.svg?react";
+import Warning from "@/shared/assets/icons/warning.svg?react";
 
 export const ICON_ELEMENTS = (
   height: IconProps["height"],
@@ -56,4 +57,5 @@ export const ICON_ELEMENTS = (
   time: <Time style={{ height, width }} />,
   chart: <Chart style={{ height, width }} />,
   decline: <Decline style={{ height, width }} />,
+  warning: <Warning style={{ height, width }} />,
 });

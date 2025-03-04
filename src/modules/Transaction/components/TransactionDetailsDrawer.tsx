@@ -1,18 +1,21 @@
 import { FC } from "react";
 import { cn } from "@/shared/helpers";
 import {
+  Alert,
   Button,
   CCardNumber,
   CIndicator,
   CStatus,
+  Divider,
+  DottedTag,
   Drawer,
   Icon,
   Tabs,
 } from "@/shared/ui";
 import { useTranslation } from "react-i18next";
 import { DrawerHeaderActions } from "@/modules/Transaction/components";
-import { Divider } from "antd";
 import { PaymentType } from "@/shared/types";
+import TextArea from "antd/es/input/TextArea";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
@@ -104,89 +107,126 @@ export const TransactionDetailsDrawer: FC<Props> = ({
       key: "1",
       label: "Детали транзакции",
       children: (
-        <div className="rounded-2xl bg-white p-5">
-          <div className="flex flex-col gap-4">
-            {infoItems.map((item, idx) => {
-              if (item.link) {
+        <div>
+          <div className="rounded-2xl bg-white p-5">
+            <Alert
+              className="mb-5"
+              type="info"
+              message={
+                "Идет процесс проведения транзакции на стороне поставщика"
+              }
+            />
+            <Alert
+              className="mb-5"
+              type="warning"
+              message={
+                "Платеж не возможно провести. Недостаточно средств на карте."
+              }
+            />
+            <div className="flex flex-col gap-4">
+              {infoItems.map((item, idx) => {
+                if (item.link) {
+                  return (
+                    <div key={idx} className="flex justify-between gap-2">
+                      <div className="text-sm font-medium text-gray-100" />
+                      <div className="cursor-pointer text-sm font-semibold text-blue-300">
+                        {item.link}
+                      </div>
+                    </div>
+                  );
+                }
+
+                if (item.multiline) {
+                  return (
+                    <div key={idx} className="flex flex-col gap-1">
+                      <div className="text-sm font-medium text-gray-100">
+                        {item.label}
+                      </div>
+                      <div className="text-sm font-medium text-gray-500">
+                        {item.value}
+                      </div>
+                    </div>
+                  );
+                }
+
+                if (item.type === "card") {
+                  return (
+                    <div key={idx} className="flex justify-between gap-2">
+                      <div className="text-sm font-medium text-gray-100">
+                        {item.label}
+                      </div>
+                      <div className="text-sm font-medium text-gray-500">
+                        <CCardNumber
+                          key={idx}
+                          type={item.cardType as PaymentType}
+                          number={item.value}
+                        />
+                      </div>
+                    </div>
+                  );
+                }
+
                 return (
                   <div key={idx} className="flex justify-between gap-2">
-                    <div className="text-sm font-medium text-gray-100" />
-                    <div className="cursor-pointer text-sm font-semibold text-blue-300">
-                      {item.link}
-                    </div>
-                  </div>
-                );
-              }
-
-              if (item.multiline) {
-                return (
-                  <div key={idx} className="flex flex-col gap-1">
                     <div className="text-sm font-medium text-gray-100">
                       {item.label}
                     </div>
-                    <div className="text-sm font-medium text-gray-500">
-                      {item.value}
+                    <div className="flex items-center gap-2 text-sm font-medium text-gray-500">
+                      {item.icon && item.icon}
+                      {item.image && (
+                        <img src={item.image} alt="logo" className="h-5 w-5" />
+                      )}
+                      {item.value === "Android" && (
+                        <img
+                          src={"/svg/device/android.svg"}
+                          alt="logo"
+                          className="h-6 w-6"
+                        />
+                      )}
+                      <span>{item.value}</span>
                     </div>
                   </div>
                 );
-              }
-
-              if (item.type === "card") {
-                return (
-                  <div key={idx} className="flex justify-between gap-2">
-                    <div className="text-sm font-medium text-gray-100">
-                      {item.label}
-                    </div>
-                    <div className="text-sm font-medium text-gray-500">
-                      <CCardNumber
-                        key={idx}
-                        type={item.cardType as PaymentType}
-                        number={item.value}
-                      />
-                    </div>
-                  </div>
-                );
-              }
-
-              return (
-                <div key={idx} className="flex justify-between gap-2">
-                  <div className="text-sm font-medium text-gray-100">
-                    {item.label}
-                  </div>
-                  <div className="flex items-center gap-2 text-sm font-medium text-gray-500">
-                    {item.icon && item.icon}
-                    {item.image && (
-                      <img src={item.image} alt="logo" className="h-5 w-5" />
-                    )}
-                    {item.value === "Android" && (
-                      <img
-                        src={"/svg/device/android.svg"}
-                        alt="logo"
-                        className="h-6 w-6"
-                      />
-                    )}
-                    <span>{item.value}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <Divider />
-          <div className="flex justify-between gap-2">
-            <div className="text-base font-bold text-gray-100">Сумма</div>
-            <div className="flex flex-col items-end gap-1.5 text-base font-bold text-gray-500">
-              <span>969 240.44 UZS</span>
-              <CStatus value={1} size="small" />
+              })}
+            </div>
+            <Divider />
+            <div className="flex justify-between gap-2">
+              <div className="text-base font-bold text-gray-100">Сумма</div>
+              <div className="flex flex-col items-end gap-1.5 text-base font-bold text-gray-500">
+                <span>969 240.44 UZS</span>
+                <CStatus value={1} size="small" />
+              </div>
+            </div>
+            <Divider />
+            <div className="flex gap-2.5">
+              <Button color="danger" icon={<Icon name="decline" />}>
+                Отменить транзакцию
+              </Button>
+              <Button color="default" icon={<Icon name="reverse" />}>
+                Частичный возрат
+              </Button>
             </div>
           </div>
-          <Divider />
-          <div className="flex gap-2.5">
-            <Button color="danger" icon={<Icon name="decline" />}>
-              Отменить транзакцию
-            </Button>
-            <Button color="default" icon={<Icon name="reverse" />}>
-              Частичный возрат
-            </Button>
+          <br />
+          <div className="rounded-2xl border border-red-100 bg-white p-5">
+            <div className="mb-3 text-base font-medium text-gray-500">
+              Укажите причину
+            </div>
+            <TextArea rows={4} placeholder="Введите комментарий" />
+            <Divider orientation="center" size="small">
+              <span className="text-gray-100">или выберите</span>
+            </Divider>
+            <div className="flex flex-wrap gap-2">
+              <DottedTag>Товара нет в наличии</DottedTag>
+              <DottedTag>Ошибка в сумме транзакции</DottedTag>
+              <DottedTag>Некорректные данные покупателя</DottedTag>
+            </div>
+            <div className="mt-5 flex justify-end gap-2.5">
+              <Button color="default">Не отменять</Button>
+              <Button color="default" disabled>
+                Отменить транзакцию
+              </Button>
+            </div>
           </div>
         </div>
       ),

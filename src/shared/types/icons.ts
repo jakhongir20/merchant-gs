@@ -24,4 +24,5 @@ export type IconType =
   | "reverse"
   | "search"
   | "sun"
+  | "warning"
   | "time";

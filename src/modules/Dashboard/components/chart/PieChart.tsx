@@ -56,7 +56,7 @@ export const PieChart: FC<Props> = ({ className, data }) => {
               />
               <span className="font-medium text-gray">{entry.label}</span>
             </div>
-            <div className="mr-3 w-full border-b border-dashed border-[#E1E3EA]" />
+            <div className="border-gray-1200 mr-3 w-full border-b border-dashed" />
             <span className="ml-0 text-sm font-semibold text-gray-500">
               {entry.value}%
             </span>

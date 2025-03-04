@@ -20,7 +20,7 @@ export const Button: FC<Props> = ({
   variant = "filled",
   ...rest
 }) => {
-  const textColor = rest.color === "danger" ? "text-[#D9214E]" : "text-600";
+  const textColor = rest.color === "danger" ? "text-red-300" : "";
   return (
     <AntButton
       loading={loading}
@@ -33,8 +33,8 @@ export const Button: FC<Props> = ({
             className={cn(
               "flex items-center justify-center",
               rest.color === "danger"
-                ? "[&_.base-index]:!text-[#D9214E]"
-                : "[&_.base-index]:!text-900",
+                ? "[&_.base-index]:!text-red-300"
+                : "[&_.base-index]:!text-gray-900",
             )}
           >
             {icon}
