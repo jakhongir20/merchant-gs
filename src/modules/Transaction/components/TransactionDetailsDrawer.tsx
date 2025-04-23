@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { cn } from "@/shared/helpers";
+import { cn, formatAmount } from "@/shared/helpers";
 import {
   Alert,
   Button,
@@ -84,6 +84,21 @@ const infoItems = [
     label: "Описание",
     value: "Покупка продуктов питания",
     multiline: true, // display label above the text
+  },
+];
+
+const actionsItems = [
+  {
+    label: "ID платежа",
+    value: "a1b2c3d4e5f6g7h8i9j0k1l2m3n",
+  },
+  {
+    label: "Дата создания",
+    value: "23.03.2024 в 13:56",
+  },
+  {
+    label: "Дата оплаты",
+    value: "23.03.2024 в 13:59",
   },
 ];
 
@@ -234,7 +249,94 @@ export const TransactionDetailsDrawer: FC<Props> = ({
     {
       key: "2",
       label: "История действий",
-      children: "ddfs",
+      children: (
+        <div className="rounded-2xl bg-white p-5">
+          <div className={"flex items-center justify-between"}>
+            <div className={"flex items-center gap-4"}>
+              <CIndicator status={"in"} size={""} />
+              <div className="flex flex-col gap-1.5">
+                <div className="text-base font-medium text-gray-1100">
+                  Оплата
+                </div>
+                <div className="text-sm font-medium text-gray-700">Полный</div>
+              </div>
+            </div>
+            <div className={"flex flex-col items-end gap-2.5"}>
+              <div className={cn("font-semibold text-black", className)}>
+                {formatAmount(969240.44)} UZS
+              </div>
+              <CStatus value={1} size="small" />
+            </div>
+          </div>
+          <Divider />
+          <div className="flex flex-col gap-4">
+            {actionsItems.map((item, idx) => {
+              if (item.link) {
+                return (
+                  <div key={idx} className="flex justify-between gap-2">
+                    <div className="text-sm font-medium text-gray-100" />
+                    <div className="cursor-pointer text-sm font-semibold text-blue-300">
+                      {item.link}
+                    </div>
+                  </div>
+                );
+              }
+
+              if (item.multiline) {
+                return (
+                  <div key={idx} className="flex flex-col gap-1">
+                    <div className="text-sm font-medium text-gray-100">
+                      {item.label}
+                    </div>
+                    <div className="text-sm font-medium text-gray-500">
+                      {item.value}
+                    </div>
+                  </div>
+                );
+              }
+
+              if (item.type === "card") {
+                return (
+                  <div key={idx} className="flex justify-between gap-2">
+                    <div className="text-sm font-medium text-gray-100">
+                      {item.label}
+                    </div>
+                    <div className="text-sm font-medium text-gray-500">
+                      <CCardNumber
+                        key={idx}
+                        type={item.cardType as PaymentType}
+                        number={item.value}
+                      />
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <div key={idx} className="flex justify-between gap-2">
+                  <div className="text-sm font-medium text-gray-100">
+                    {item.label}
+                  </div>
+                  <div className="flex items-center gap-2 text-sm font-medium text-gray-500">
+                    {item.icon && item.icon}
+                    {item.image && (
+                      <img src={item.image} alt="logo" className="h-5 w-5" />
+                    )}
+                    {item.value === "Android" && (
+                      <img
+                        src={"/svg/device/android.svg"}
+                        alt="logo"
+                        className="h-6 w-6"
+                      />
+                    )}
+                    <span>{item.value}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ),
     },
   ];
 

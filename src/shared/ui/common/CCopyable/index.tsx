@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, type MouseEvent, useState } from "react";
 import { Icon } from "@/shared/ui";
 import { cn } from "@/shared/helpers";
 import { Timeout } from "react-number-format/types/types";
@@ -12,7 +12,9 @@ export const CCopyable: FC<Props> = ({ className, value }) => {
   const [copied, setCopied] = useState(false);
   const [timeoutId, setTimeoutId] = useState<Timeout | null>(null);
 
-  const handleCopy = () => {
+  const handleCopy = (e: MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (timeoutId) {
       clearTimeout(timeoutId);
       setCopied(false);
