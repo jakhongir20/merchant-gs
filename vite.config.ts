@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
@@ -13,19 +12,19 @@ export default defineConfig({
     react(),
     eslint(),
     svgr({
-      include: "**/*.svg?react"
-    })
+      include: "**/*.svg?react",
+    }),
   ],
   server: {
-    port: 5173,
+    port: 8080,
     hmr: {
-      overlay: true // Enables HMR error overlay (default is true)
-    }
+      overlay: true, // Enables HMR error overlay (default is true)
+    },
   },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
-      "~": fileURLToPath(new URL("./src", import.meta.url))
-    }
-  }
+      "~": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
 });

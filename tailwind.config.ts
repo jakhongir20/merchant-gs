@@ -75,6 +75,9 @@ export default {
         "15": "15px",
         "18": "18px",
       },
+      display: {
+        "d-table": "table",
+      },
     },
     // screens: {
     //   // sm: '600px',

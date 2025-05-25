@@ -1,7 +1,8 @@
 {
   "Sidebar": {
     "Dashboard": "Дашборд",
-    "Transaction": "Транзакция"
+    "Transaction": "Транзакция",
+    "Company": "Компании"
   },
   "Common": {
     "Input": {

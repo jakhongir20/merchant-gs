@@ -7,10 +7,12 @@ import { transactionRoutes } from "@/modules/Transaction";
 import { dashboardRoutes } from "@/modules/Dashboard";
 import LoginPage from "@/modules/Auth/page";
 import { AuthLayout } from "@/modules/Auth/layout";
+import { companyRoutes } from "@/modules/Company";
 
 export const pagesRoutes: AppRouteObject[] = [
   ...dashboardRoutes,
   ...transactionRoutes,
+  ...companyRoutes,
 ];
 
 export const routes: RouteObject[] = [

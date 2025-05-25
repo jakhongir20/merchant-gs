@@ -52,6 +52,9 @@
     border-color: #E1E3EA !important;
 }
 
+.sidebar-item .ant-menu-title-content {
+    display: table !important;
+}
 
 /* Use color variables */
 /*.ant-select-selector {*/
