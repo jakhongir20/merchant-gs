@@ -3,6 +3,7 @@ import { cn } from "@/shared/helpers";
 import { Button, CSearchInput, Icon } from "@/shared/ui";
 import { useScreen } from "@/shared/hooks";
 import { useTranslation } from "react-i18next";
+import { IconType } from "@/shared/types";
 
 interface Props {
   className?: string;
@@ -14,7 +15,7 @@ export const CompanyHeader: FC<Props> = ({ className }) => {
   const handleClick = () => {};
 
   const [isRowView, setRowView] = useState(false);
-  const VIEWS = [
+  const VIEWS: { id: IconType; row: boolean }[] = [
     { id: "grid", row: false },
     { id: "row", row: true },
   ];

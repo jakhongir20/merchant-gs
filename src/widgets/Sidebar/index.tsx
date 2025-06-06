@@ -56,7 +56,7 @@ export const Sidebar: FC<Props> = ({ collapsed }) => {
                 label: (
                   <span
                     className={cn(
-                      "!d-table !opacity-100",
+                      "!d-table font-medium !opacity-100",
                       !collapsed && (isActive ? "text-red" : "text-gray"),
                     )}
                   >

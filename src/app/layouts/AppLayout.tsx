@@ -1,7 +1,7 @@
-import { FC, useState } from "react";
+import React, { FC, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Layout } from "antd";
-import { Header, Sidebar } from "@/widgets";
+import { Footer, Header, Sidebar } from "@/widgets";
 
 interface Props {
   className?: string;
@@ -24,7 +24,10 @@ export const AppLayout: FC<Props> = () => {
             localStorage.setItem("sidebar-collapsed", JSON.stringify(value));
           }}
         />
-        <Outlet />
+        <Layout.Content className="h-[calc(100vh-138px)] overflow-y-auto p-5 xl:p-[30px]">
+          <Outlet />
+        </Layout.Content>
+        <Footer />
       </Layout>
     </Layout>
   );

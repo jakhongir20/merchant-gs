@@ -2,6 +2,7 @@ import { FC } from "react";
 import { cn } from "@/shared/helpers";
 import { CStatus, Icon } from "@/shared/ui";
 import { Avatar, Tooltip } from "antd";
+import { IconType } from "@/shared/types";
 
 interface Props {
   className?: string;
@@ -16,7 +17,10 @@ const paymentMethods = [
   { type: "union" },
 ];
 
-const platforms = [{ type: "globe", isActive: true }, { type: "telegram" }];
+const platforms: { type: IconType; isActive?: boolean }[] = [
+  { type: "globe", isActive: true },
+  { type: "telegram" },
+];
 
 export const CompanyCards: FC<Props> = ({ className }) => {
   return (
