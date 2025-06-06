@@ -1,5 +1,5 @@
 import React from "react";
-import { createBrowserRouter, RouteObject } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouteObject } from "react-router-dom";
 import { AppLayout } from "@/app/layouts";
 import { AppRouteObject } from "@/shared/types";
 import { ProtectedRoute } from "@/shared/hocs";
@@ -23,7 +23,13 @@ export const routes: RouteObject[] = [
         <AppLayout />
       </ProtectedRoute>
     ),
-    children: pagesRoutes,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="/dashboard" replace />,
+      },
+      ...pagesRoutes,
+    ],
   },
   {
     path: "/auth",

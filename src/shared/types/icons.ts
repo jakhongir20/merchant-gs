@@ -1,4 +1,5 @@
 export type IconType =
+  | "add-curly"
   | "arrow-double"
   | "arrow-indicator"
   | "arrow-line"
@@ -13,6 +14,7 @@ export type IconType =
   | "datepicker"
   | "decline"
   | "download-file"
+  | "education"
   | "file"
   | "filter"
   | "finance"
@@ -24,5 +26,5 @@ export type IconType =
   | "reverse"
   | "search"
   | "sun"
-  | "warning"
-  | "time";
+  | "time"
+  | "warning";

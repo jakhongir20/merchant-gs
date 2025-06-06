@@ -13,6 +13,8 @@ export enum Status {
   InProgress = 2, // В обработке
   Refund = 3, // Возврат
   Rejected = 4, // Отклонено
+  Active = 5, // Активно
+  Inactive = 6, // Неактивно
 }
 
 export interface Period {

@@ -22,4 +22,5 @@ export {
   CCopyable,
   CDate,
   CTrendBadge,
+  CSearchInput,
 } from "@/shared/ui/common";

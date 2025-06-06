@@ -7,3 +7,4 @@ export { CRowItem } from "./CRowItem";
 export { CCopyable } from "./CCopyable";
 export { CDate } from "./CDate";
 export { CTrendBadge } from "./CTrendBadge";
+export { CSearchInput } from "./CSearchInput";

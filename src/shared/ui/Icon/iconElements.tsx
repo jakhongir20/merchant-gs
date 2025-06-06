@@ -27,6 +27,12 @@ import Chart from "@/shared/assets/icons/chart.svg?react";
 import Decline from "@/shared/assets/icons/decline.svg?react";
 import Warning from "@/shared/assets/icons/warning.svg?react";
 import Education from "@/shared/assets/icons/education.svg?react";
+import AddCurly from "@/shared/assets/icons/add-curly.svg?react";
+import Grid from "@/shared/assets/icons/grid.svg?react";
+import Row from "@/shared/assets/icons/row.svg?react";
+import DotActive from "@/shared/assets/icons/dot-active.svg?react";
+import Globe from "@/shared/assets/icons/globe.svg?react";
+import Telegram from "@/shared/assets/icons/telegram.svg?react";
 
 export const ICON_ELEMENTS = (
   height: IconProps["height"],
@@ -60,4 +66,10 @@ export const ICON_ELEMENTS = (
   decline: <Decline style={{ height, width }} />,
   warning: <Warning style={{ height, width }} />,
   education: <Education style={{ height, width }} />,
+  "add-curly": <AddCurly style={{ height, width }} />,
+  grid: <Grid style={{ height, width }} />,
+  row: <Row style={{ height, width }} />,
+  "dot-active": <DotActive style={{ height, width }} />,
+  globe: <Globe style={{ height, width }} />,
+  telegram: <Telegram style={{ height, width }} />,
 });

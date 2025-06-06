@@ -48,6 +48,10 @@
     font-style: normal;
 }
 
+.input-bg-white .ant-input::placeholder {
+    color: #A1A5B7 !important;
+}
+
 .ant-input-outlined {
     border-color: #E1E3EA !important;
 }

@@ -8,14 +8,22 @@ interface Props {
 }
 
 export const AppLayout: FC<Props> = () => {
-  const [collapsed, setCollapsed] = useState(true);
-  /* eslint-disable @typescript-eslint/no-unused-vars */
+  const [collapsed, setCollapsed] = useState(() => {
+    const stored = localStorage.getItem("sidebar-collapsed");
+    return stored !== null ? JSON.parse(stored) : true;
+  });
 
   return (
     <Layout>
       <Sidebar collapsed={collapsed} />
       <Layout style={{ backgroundColor: "#f3f6f9" }}>
-        <Header collapsed={collapsed} setCollapsed={setCollapsed} />
+        <Header
+          collapsed={collapsed}
+          setCollapsed={(value) => {
+            setCollapsed(value);
+            localStorage.setItem("sidebar-collapsed", JSON.stringify(value));
+          }}
+        />
         <Outlet />
       </Layout>
     </Layout>

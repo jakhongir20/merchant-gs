@@ -9,12 +9,18 @@
       "Enter": "Введите ...",
       "Search": "Поиск"
     },
+    "Button": {
+      "Add": "Добавить",
+      "AddCompany": "Добавить компанию"
+    },
     "Status": {
       "Success": "Успешно",
       "InProgress": "В обработке",
       "Refund": "Возврат",
       "Rejected": "Отклонено",
-      "Unknown": "Неизвестно"
+      "Unknown": "Неизвестно",
+      "Active": "Активный",
+      "Inactive": "Неактивный"
     },
     "Period": {
       "Today": "Сегодня",

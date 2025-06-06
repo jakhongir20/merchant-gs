@@ -70,6 +70,7 @@ export default {
         "13px": "13px",
         "18px": "18px",
         "26px": "26px",
+        "30px": "30px",
       },
       lineHeight: {
         "15": "15px",
