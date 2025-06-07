@@ -31,9 +31,9 @@ export const antdThemeConfig: ThemeConfig = {
       colorText: "#181C32",
     },
     Input: {
-      colorText: "#111214",
+      colorText: "#3F4254",
       borderRadius: 8,
-      fontSize: 14,
+      fontSize: 12,
       controlHeight: 40,
       boxShadow: "none",
       colorPrimary: "#F1F1F2",
@@ -67,5 +67,12 @@ export const antdThemeConfig: ThemeConfig = {
       paddingContentVertical: 8,
     },
     Tabs: {},
+    Tooltip: {
+      fontSize: 12,
+    },
+    Badge: {
+      fontSize: 12,
+      colorText: "#FFFFFF",
+    },
   },
 };

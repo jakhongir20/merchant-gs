@@ -16,6 +16,7 @@ import Cross from "@/shared/assets/icons/cross.svg?react";
 import CrossRounded from "@/shared/assets/icons/cross-rounded.svg?react";
 import Reverse from "@/shared/assets/icons/reverse.svg?react";
 import Check from "@/shared/assets/icons/check.svg?react";
+import CheckSmall from "@/shared/assets/icons/check-small.svg?react";
 import Refresh from "@/shared/assets/icons/refresh.svg?react";
 import Copy from "@/shared/assets/icons/copy.svg?react";
 import Copied from "@/shared/assets/icons/copied.svg?react";
@@ -56,6 +57,7 @@ export const ICON_ELEMENTS = (
   "cross-rounded": <CrossRounded style={{ height, width }} />,
   reverse: <Reverse style={{ height, width }} />,
   check: <Check style={{ height, width }} />,
+  "check-small": <CheckSmall style={{ height, width }} />,
   refresh: <Refresh style={{ height, width }} />,
   copy: <Copy style={{ height, width }} />,
   copied: <Copied style={{ height, width }} />,

@@ -7,6 +7,7 @@ export type IconType =
   | "arrow"
   | "auto-fill"
   | "chart"
+  | "check-small"
   | "check"
   | "copied"
   | "copy"

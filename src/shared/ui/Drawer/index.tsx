@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 import { Drawer as AntDrawer, DrawerProps } from "antd";
 import { cn } from "@/shared/helpers";
-import { Icon } from "@/shared/ui";
+import { CCrossIcon } from "@/shared/ui";
 
 interface Props extends DrawerProps {
   className?: string;
@@ -9,7 +9,7 @@ interface Props extends DrawerProps {
   size?: DrawerProps["size"];
   header: ReactNode;
   placement?: DrawerProps["placement"];
-  onClose?: DrawerProps["onClose"];
+  onClose?: () => void;
 }
 
 export const Drawer: FC<Props> = ({
@@ -27,15 +27,7 @@ export const Drawer: FC<Props> = ({
         title={
           <div className="flex items-center justify-between gap-4">
             {header}
-            <div
-              className="group cursor-pointer transition-all"
-              onClick={onClose}
-            >
-              <Icon
-                name="cross-rounded"
-                className="transition-all group-hover:text-gray-100"
-              />
-            </div>
+            <CCrossIcon onClick={() => onClose?.()} />
           </div>
         }
         placement={placement}

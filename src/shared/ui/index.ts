@@ -11,6 +11,9 @@ export { LabeledSelect } from "@/shared/ui/LabeledSelect";
 export { Alert } from "@/shared/ui/Alert";
 export { Divider } from "@/shared/ui/Divider";
 export { DottedTag } from "@/shared/ui/DottedTag";
+export { Modal } from "@/shared/ui/Modal";
+export { StatusModal } from "@/shared/ui/StatusModal";
+export { InputNumber } from "@/shared/ui/InputNumber";
 
 export {
   CSummaryCard,
@@ -23,4 +26,5 @@ export {
   CDate,
   CTrendBadge,
   CSearchInput,
+  CCrossIcon,
 } from "@/shared/ui/common";

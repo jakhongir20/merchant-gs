@@ -53,11 +53,44 @@
 }
 
 .ant-input-outlined {
-    border-color: #E1E3EA !important;
+    border-color: #E1E3EA;
+    font-weight: 500;
+}
+
+.ant-input-outlined:focus-within,
+.ant-input-outlined:focus,
+.ant-input-outlined:hover {
+    border-color: #e7e9f1;
+}
+
+.ant-input-outlined.ant-input-status-success:not(.ant-input-disabled) {
+    border-color: #50CD89 !important;
 }
 
 .sidebar-item .ant-menu-title-content {
     display: table !important;
+}
+
+.ant-form-item-label {
+    padding-bottom: 5px !important;
+}
+
+/* New right-side marker */
+.ant-form-item-label label {
+    font-weight: 500 !important;
+}
+
+.ant-form-item-required::after {
+    content: '*' !important;
+    color: #F1416C;
+    visibility: visible !important;
+    right: -2px !important;
+    position: static; /* keep it inline with the text */
+}
+
+.ant-badge-count {
+    top: 2px !important;
+    right: 3px !important;
 }
 
 /* Use color variables */

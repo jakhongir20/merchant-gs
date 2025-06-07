@@ -253,7 +253,7 @@ export const TransactionDetailsDrawer: FC<Props> = ({
         <div className="rounded-2xl bg-white p-5">
           <div className={"flex items-center justify-between"}>
             <div className={"flex items-center gap-4"}>
-              <CIndicator status={"in"} size={""} />
+              <CIndicator status={"in"} />
               <div className="flex flex-col gap-1.5">
                 <div className="text-base font-medium text-gray-1100">
                   Оплата

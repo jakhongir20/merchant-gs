@@ -10,6 +10,8 @@ export const CSearchInput: FC<Props> = ({ className }) => {
   const { t } = useTranslation();
   return (
     <Input
+      width={300}
+      variant={"filled"}
       className={className}
       placeholder={t("Common.Input.Search")}
       prefix={<Icon name="search" width={16} color="text-gray-100" />}

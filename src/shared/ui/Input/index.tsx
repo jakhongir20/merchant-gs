@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { FC, ReactNode } from "react";
+import React, { FC, ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { Input as AntInput, InputProps as AntDInputProps } from "antd";
 import { cn } from "@/shared/helpers";
@@ -11,6 +11,7 @@ interface Props extends AntDInputProps {
   prefix?: ReactNode;
   addonAfter?: ReactNode;
   addonClassName?: string;
+  defaultSuffix?: boolean;
 }
 
 export const Input: FC<Props> = ({
@@ -21,7 +22,9 @@ export const Input: FC<Props> = ({
   addonAfter,
   size = "middle",
   addonClassName = "",
-  width = 300,
+  width = "100%",
+  variant = "outlined",
+  defaultSuffix = false,
   ...rest
 }) => {
   const { t } = useTranslation();
@@ -29,9 +32,9 @@ export const Input: FC<Props> = ({
   return (
     <AntInput
       style={{ width }}
-      variant="filled"
+      variant={variant}
       className={cn(
-        "px-3 py-2",
+        "!h-10 px-3 py-2 !font-medium",
         prefix ? "[&_.ant-input-prefix]:!mr-1.5" : "",
         className,
       )}
@@ -46,9 +49,15 @@ export const Input: FC<Props> = ({
       prefix={prefix}
       suffix={
         suffix && (
-          <div className="flex h-[30px] w-8 cursor-pointer items-center rounded-md bg-gray-800 p-1.5">
-            {suffix}
-          </div>
+          <>
+            {defaultSuffix ? (
+              suffix
+            ) : (
+              <div className="flex h-[30px] w-8 cursor-pointer items-center rounded-md bg-gray-800 p-1.5">
+                {suffix}
+              </div>
+            )}
+          </>
         )
       }
       {...rest}

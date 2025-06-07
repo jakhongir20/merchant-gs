@@ -10,7 +10,7 @@ export const TransactionLayout: FC<Props> = () => {
   } = theme.useToken();
   return (
     <Layout.Content
-      className="m-[30px] rounded-xl p-[30px]"
+      className="rounded-xl p-30px"
       style={{
         background: colorBgContainer,
       }}

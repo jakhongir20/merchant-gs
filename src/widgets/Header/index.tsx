@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Avatar, Flex, Layout, Row, Switch, theme } from "antd";
+import { Avatar, Badge, Flex, Layout, Row, Switch, theme, Tooltip } from "antd";
 import { Button, Icon } from "@/shared/ui";
 import { cn } from "@/shared/helpers";
 
@@ -16,7 +16,7 @@ export const Header: FC<Props> = ({ collapsed, setCollapsed }) => {
 
   return (
     <Layout.Header
-      className="relative flex h-20 items-center justify-between px-[30px]"
+      className="relative flex h-20 items-center justify-between border-b border-gray-300 px-[30px]"
       style={{
         background: colorBgContainer,
       }}
@@ -55,18 +55,35 @@ export const Header: FC<Props> = ({ collapsed, setCollapsed }) => {
         <Flex align="center">
           <Flex
             align="center"
-            className="mr-5 h-11 gap-2.5 rounded-[10px] border border-dashed border-gray-400 px-3.5 py-2.5"
+            className="relative mr-5 h-11 gap-2.5 rounded-[10px] border border-dashed border-gray-400 px-3.5 py-2.5"
           >
             <Switch size="default" />
             <span className="">Без % Global Pay</span>
-            <Icon name="info" color="text-gray" className="" />
+            <Tooltip title={"Платежи без комиссии"} placement={"bottom"}>
+              <p>
+                <Icon name="info" color="text-gray" className="" />
+              </p>
+            </Tooltip>
           </Flex>
           <div className="h-26px w-[1px] bg-gray-400"></div>
-          <Flex align="center" className="ml-5">
+          <Flex align="center" className="ml-5 cursor-pointer">
             <Icon name="sun" />
           </Flex>
-          <Flex align="center" className="ml-8 mr-5">
-            <Icon name="notification" />
+          <Flex align="center" className="ml-8 mr-5 cursor-pointer">
+            <Badge
+              count={5}
+              styles={{
+                indicator: {
+                  width: 16,
+                  height: 16,
+                },
+              }}
+              color={"#F1416C"}
+            >
+              <p>
+                <Icon name="notification" />
+              </p>
+            </Badge>
           </Flex>
           <Avatar
             alt="avatar"
